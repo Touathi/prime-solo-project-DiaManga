@@ -9,7 +9,18 @@ function AboutPage() {
   return (
     <div className="container">
       <div>
-        <p>This about page is for anyone to read!</p>
+        <h1>About My App</h1>
+
+        <br></br>
+
+        <p>
+          Manga Diamond is an app designed for manga readers that has trouble keeping track of what mangas they are reading.
+          The user is provided with tons of mangas to choose, current popular mangas or mangas
+          that just recently had a new chapter release. Users will also be able to search manga by title name.
+          This app also provides users with a personal library that they can add mangas that they are interested in reading or 
+          currently reading, the app also includes a finish reading category to show users what mangas they
+          had finished reading so they dont go back to reading the same manga over again.
+        </p>
       </div>
     </div>
   );
