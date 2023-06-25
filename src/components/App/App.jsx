@@ -14,11 +14,10 @@ import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
-import LandingPage from '../LandingPage/LandingPage';
+import LibraryPage from '../LibraryPage/LibraryPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import HomePage from '../HomePage/HomePage';
 
 import './App.css';
 
@@ -36,8 +35,8 @@ function App() {
       <div>
         <Nav />
         <Switch>
-          {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-          <Redirect exact from="/" to="/home" />
+          {/* Visiting localhost:3000 will redirect to localhost:3000/login */}
+          <Redirect exact from="/" to="/login" />
 
           {/* Visiting localhost:3000/about will show the about page. */}
           <Route
@@ -55,17 +54,17 @@ function App() {
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
             exact
-            path="/user"
+            path="/home"
           >
-            <UserPage />
+            <HomePage />
           </ProtectedRoute>
 
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact
-            path="/info"
+            path="/library"
           >
-            <InfoPage />
+            <LibraryPage />
           </ProtectedRoute>
 
           <Route
@@ -75,7 +74,7 @@ function App() {
             {user.id ?
               // If the user is already logged in, 
               // redirect to the /user page
-              <Redirect to="/user" />
+              <Redirect to="/home" />
               :
               // Otherwise, show the login page
               <LoginPage />
@@ -89,31 +88,18 @@ function App() {
             {user.id ?
               // If the user is already logged in, 
               // redirect them to the /user page
-              <Redirect to="/user" />
+              <Redirect to="/home" />
               :
               // Otherwise, show the registration page
               <RegisterPage />
             }
           </Route>
+          
 
-          <Route
-            exact
-            path="/home"
-          >
-            {user.id ?
-              // If the user is already logged in, 
-              // redirect them to the /user page
-              <Redirect to="/user" />
-              :
-              // Otherwise, show the Landing page
-              <LandingPage />
-            }
-          </Route>
-
-          {/* If none of the other routes matched, we will show a 404. */}
-          <Route>
+          {/* If none of the other routes matched, we will show a 404.*/}
+         <Route>
             <h1>404</h1>
-          </Route>
+          </Route>  
         </Switch>
         <Footer />
       </div>
