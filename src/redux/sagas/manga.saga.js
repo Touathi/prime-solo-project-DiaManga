@@ -5,8 +5,8 @@ import { put, takeLatest } from 'redux-saga/effects';
 // GET MANGA SAGA
 function* getManga() {
     try {
-      const trendingMangas = yield axios.get('/api/getmanga')
-      yield put ( {type:'SET_MANGAS', payload: trendingMangas.data})
+      const fetchMangas = yield axios.get('/api/getmanga')
+      yield put ( {type:'SET_MANGAS', payload: fetchMangas.data})
     }
     catch( error ) {
       console.log('Error in getting manga', error);
