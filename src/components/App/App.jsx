@@ -17,7 +17,7 @@ import AboutPage from '../AboutPage/AboutPage';
 import LibraryPage from '../LibraryPage/LibraryPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import HomePage from '../HomePage/HomePage';
+import HomePage from '../HomeManga/HomeManga';
 
 import './App.css';
 
