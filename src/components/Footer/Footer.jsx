@@ -15,8 +15,8 @@ function Footer() {
 
     <br></br>
 
-    <Link to="/info">
-          Info Page
+    <Link to="/about">
+          About App
     </Link>
 
     <br></br>
