@@ -23,10 +23,23 @@ function* getManga() {
     }
   }
 
+  function* searchManga (action) {
+    try {
+      const searchMangaRes = yield axios.get(`api/getmanga/search/${action.payload}`)
+      yield put ( {type:'SET_SEARCH_MANGA', payload: searchMangaRes.data.data})
+    }
+    catch( err ) {
+      console.log(`Error in getting fav pic`);
+    }
+  
+  }
+  
+
 
   function* mangaSaga() {
     yield takeLatest('GET_MANGA_LIST', getManga)
     yield takeLatest('GET_MANGA_CH', getMangaCh)
+    yield takeLatest('SEARCH_MANGA', searchManga)
   }
 
 export default mangaSaga

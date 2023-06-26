@@ -18,8 +18,12 @@ import LibraryPage from '../LibraryPage/LibraryPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import HomePage from '../HomeManga/HomeManga';
+import SearchManga from '../SearchManga/SearchManga'
+
+
 
 import './App.css';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -94,6 +98,15 @@ function App() {
               <RegisterPage />
             }
           </Route>
+
+          <Route
+            exact
+            path="/search"
+          >
+            <SearchManga />
+          </Route>
+          
+
         
           {/* If none of the other routes matched, we will show a 404.*/}
          <Route>
