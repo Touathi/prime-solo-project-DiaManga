@@ -22,16 +22,19 @@ function MangaDetails() {
     const handleClick = () => {
         console.log('Add to library', mangaDetails.attributes.canonicalTitle);
         dispatch( {type: 'ADD_TO_MANGA_BOOK', 
-                payload: {
-                    manga_id: mangaDetails.id,
-                    title: mangaDetails.attributes.canonicalTitle,
-                    img: mangaDetails.attributes.posterImage.tiny,
-                    avg_rate: mangaDetails.attributes.averageRating,
-                    description: mangaDetails.attributes.synopsis,
-                    start_date: mangaDetails.attributes.startDate,
-                    updated_at: mangaDetails.attributes.updatedAt,
-                    status: mangaDetails.attributes.status
-                }})
+            payload: {
+                manga_id: mangaDetails.id,
+                title: mangaDetails.attributes.canonicalTitle,
+                img: mangaDetails.attributes.posterImage.tiny,
+                avg_rate: mangaDetails.attributes.averageRating,
+                description: mangaDetails.attributes.synopsis,
+                start_date: mangaDetails.attributes.startDate,
+                updated_at: mangaDetails.attributes.updatedAt,
+                status: mangaDetails.attributes.status
+            }
+        })
+
+        dispatch( {type: 'ADD_TO_MANGA_LIBRARY', payload: mangaDetails.id})
     }
 
 

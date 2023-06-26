@@ -25,7 +25,24 @@ router.post('/', (req, res) => {
             res.sendStatus(200)
         })
         .catch(err => {
-            console.log('Error in posting', err);
+            console.log('Error in posting in manga_book', err);
+        })
+})
+
+router.post('/library', (req, res) => {
+    console.log(req.user.id);
+    console.log(req.body);
+    const queryText = `
+        INSERT INTO "manga_library" ("user_id", "manga_book_id")
+        VALUES ($1, $2);
+    `
+    const userID = req.user.id
+    pool.query(queryText, [userID, req.body.manga_id])
+        .then(result => {
+            res.sendStatus(200);
+        })
+        .catch(err => {
+            console.log('Error in posting in manga_library', err);
         })
 })
 

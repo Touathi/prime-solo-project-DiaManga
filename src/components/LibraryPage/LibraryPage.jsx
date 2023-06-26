@@ -32,14 +32,15 @@ const handleClick = (manga) => {
       </div>
 
       <div>
-        <div>
-          {/* UPDATE DONE_READING IN DATABASE */}
-          <button>Finished reading</button> 
-          {/* DELETE FROM DATABASE */}
-          <button>Remove</button>
-        </div>
+  
         {mangaLibrary.map(manga => (
           <div key={manga.id}>
+          <div>
+            {/* UPDATE DONE_READING IN DATABASE */}
+            <button>Finished reading</button> 
+            {/* DELETE FROM DATABASE */}
+            <button>Remove</button>
+          </div>
             <Link to='/library/mangadetails'
               onClick={() => handleClick(manga)}>
             <img src={manga.img} alt="manga_pic" />

@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
         let queryText = `
             SELECT * FROM "manga_book"
             JOIN "manga_library" 
-            ON "manga_library"."manga_book_id" = "manga_book"."id"
+            ON "manga_library"."manga_book_id" = "manga_book"."manga_id"
             WHERE "user_id" = $1;
         `;
         pool.query(queryText, [userID])
