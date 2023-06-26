@@ -15,7 +15,7 @@ function* getManga() {
   
   function* getMangaCh(action) {
     try {
-      const mangaChResponse = yield axios.get(`/api/getmangach/${action.payload}/`)
+      const mangaChResponse = yield axios.get(`/api/getmanga/${action.payload}/mangach`)
       yield put ( {type: 'SET_MANGA_CHAPTER', payload: mangaChResponse.data} )
     }
     catch(error) {
@@ -29,17 +29,26 @@ function* getManga() {
       yield put ( {type:'SET_SEARCH_MANGA', payload: searchMangaRes.data.data})
     }
     catch( err ) {
-      console.log(`Error in getting fav pic`);
+      console.log(`Error in searching manga`, err);
     }
   
   }
   
-
+  function* getMangaLibrary () {
+    try {
+      const mangaLibrary = yield axios.get('/api/getlibrary')
+      yield put ( {type: 'SET_MANGA_LIBRARY', payload: mangaLibrary.data} )
+    }
+    catch(err) {
+      console.log('Error in getting manga library', err);
+    }
+  }
 
   function* mangaSaga() {
     yield takeLatest('GET_MANGA_LIST', getManga)
     yield takeLatest('GET_MANGA_CH', getMangaCh)
     yield takeLatest('SEARCH_MANGA', searchManga)
+    yield takeLatest('GET_MANGA_LIBRARY', getMangaLibrary)
   }
 
 export default mangaSaga

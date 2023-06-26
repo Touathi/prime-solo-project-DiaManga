@@ -100,13 +100,16 @@ function App() {
             }
           </Route>
 
+          {/* SEARCH PAGE */}
           <Route
             exact
             path="/search"
           >
             <SearchManga />
           </Route>
+          
 
+          {/* MANGA DETAIL PAGE */}
           <Route
             exact
             path="/mangadetails"

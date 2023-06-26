@@ -21,26 +21,19 @@ function MangaBook({manga}) {
     
     return (
         <>
+            <div>
                 <div>
-
-                    
-                    <div>
-                        {manga.attributes.canonicalTitle}
-                    </div>
-                    <Link to='/mangadetails'>
-                        <img 
-                            key={manga.id}  
-                            src={manga.attributes.posterImage.tiny}
-                            alt='mangaPic'
-                            onClick={() => handleClick(manga)}
-                        />
-                    </Link>
+                    {manga.attributes.canonicalTitle}
                 </div>
-
-                <div>
-
-
-                </div>
+                <Link to='/mangadetails'>
+                    <img 
+                        key={manga.id}  
+                        src={manga.attributes.posterImage.tiny}
+                        alt='mangaPic'
+                        onClick={() => handleClick(manga)}
+                    />
+                </Link>
+            </div>
         </>
     )
 }
