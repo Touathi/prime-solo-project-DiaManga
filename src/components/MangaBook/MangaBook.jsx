@@ -27,7 +27,7 @@ function MangaBook({manga}) {
                     <div>
                         {manga.attributes.canonicalTitle}
                     </div>
-                    <Link to='/managinfo'>
+                    <Link to='/mangadetails'>
                         <img 
                             key={manga.id}  
                             src={manga.attributes.posterImage.tiny}

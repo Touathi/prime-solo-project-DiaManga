@@ -19,6 +19,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import HomePage from '../HomeManga/HomeManga';
 import SearchManga from '../SearchManga/SearchManga'
+import MangaDetails from '../MangaDetails/MangaDetails';
 
 
 
@@ -104,6 +105,13 @@ function App() {
             path="/search"
           >
             <SearchManga />
+          </Route>
+
+          <Route
+            exact
+            path="/mangadetails"
+          >
+            <MangaDetails />
           </Route>
           
 
