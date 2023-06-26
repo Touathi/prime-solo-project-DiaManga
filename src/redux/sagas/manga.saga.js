@@ -44,11 +44,22 @@ function* getManga() {
     }
   }
 
+  function* addToMangaBook (action) {
+    console.log(action.payload);
+    try{
+      yield axios.post('/post/manga', action.payload)
+    }
+    catch(err) {
+      console.log('Error in posting to mangabook database');
+    }
+  }
+
   function* mangaSaga() {
     yield takeLatest('GET_MANGA_LIST', getManga)
     yield takeLatest('GET_MANGA_CH', getMangaCh)
     yield takeLatest('SEARCH_MANGA', searchManga)
     yield takeLatest('GET_MANGA_LIBRARY', getMangaLibrary)
+    yield takeLatest('ADD_TO_MANGA_BOOK', addToMangaBook)
   }
 
 export default mangaSaga

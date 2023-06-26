@@ -19,11 +19,26 @@ function MangaDetails() {
 
     console.log('The selected manga is', mangaDetails.attributes.canonicalTitle);
 
+    const handleClick = () => {
+        console.log('Add to library', mangaDetails.attributes.canonicalTitle);
+        dispatch( {type: 'ADD_TO_MANGA_BOOK', 
+                payload: {
+                    manga_id: mangaDetails.id,
+                    title: mangaDetails.attributes.canonicalTitle,
+                    img: mangaDetails.attributes.posterImage.tiny,
+                    avg_rate: mangaDetails.attributes.averageRating,
+                    description: mangaDetails.attributes.synopsis,
+                    start_date: mangaDetails.attributes.startDate,
+                    updated_at: mangaDetails.attributes.updatedAt,
+                    status: mangaDetails.attributes.status
+                }})
+    }
+
 
     return (
         <>
             <div>
-                <button>Add to favorite</button>
+                <button onClick={handleClick}>Add to favorite</button>
             </div>    
             <div>
                 <p>{mangaDetails.attributes.canonicalTitle}</p>
@@ -33,6 +48,7 @@ function MangaDetails() {
             </div>
 
             <div>
+                <h3>Chapters</h3>
                 <MangaCh />
             </div>
         </>
