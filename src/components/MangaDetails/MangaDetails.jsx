@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import MangaCh from '../MangaCh/MangaCh';
 
 function MangaDetails() {
 
-    const history = useHistory()
+    
     const dispatch = useDispatch();
 
     const mangaDetails = useSelector(store => store.setMangaBook)

@@ -32,6 +32,12 @@ const handleClick = (manga) => {
       </div>
 
       <div>
+        <div>
+          {/* UPDATE DONE_READING IN DATABASE */}
+          <button>Finished reading</button> 
+          {/* DELETE FROM DATABASE */}
+          <button>Remove</button>
+        </div>
         {mangaLibrary.map(manga => (
           <div key={manga.id}>
             <Link to='/library/mangadetails'

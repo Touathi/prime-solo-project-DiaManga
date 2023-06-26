@@ -20,6 +20,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import HomePage from '../HomeManga/HomeManga';
 import SearchManga from '../SearchManga/SearchManga'
 import MangaDetails from '../MangaDetails/MangaDetails';
+import LMangaDetail from '../LMangaDetail/LMangaDetail';
 
 
 
@@ -115,6 +116,14 @@ function App() {
             path="/mangadetails"
           >
             <MangaDetails />
+          </Route>
+
+           {/* MANGA DETAIL PAGE */}
+           <Route
+            exact
+            path="/library/mangadetails"
+          >
+            <LMangaDetail />
           </Route>
           
 
