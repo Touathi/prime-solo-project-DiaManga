@@ -71,7 +71,7 @@ function* getManga() {
 // UPDATE MANGA TO DONE READING IN DATABASE
 function* updateManga(action) {
   try {
-    yield axios.put(`/delete/manga/library/${action.payload}`)
+    yield axios.put(`/update/manga/library/${action.payload}`)
   }
   catch(err) {
     console.log('Failed to update manga_id', action.payload);
@@ -98,6 +98,7 @@ function* deleteMangaFromLibrary(action) {
     yield takeLatest('GET_MANGA_LIBRARY', getMangaLibrary)
     yield takeLatest('ADD_TO_MANGA_BOOK', addToMangaBook)
     yield takeLatest('ADD_TO_MANGA_LIBRARY', addToMangaLibrary)
+    yield takeLatest('UPDATE_MANGA_BOOK', updateManga)
     yield takeLatest('DELETE_MANGA_BOOK', deleteMangaFromLibrary)
   }
 

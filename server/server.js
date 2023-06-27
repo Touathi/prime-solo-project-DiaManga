@@ -13,6 +13,7 @@ const getMangaRouter = require('./routes/getManga.router')
 const getMangaLibrary = require('./routes/getLibrary.router')
 const postMangaBook = require('./routes/postLibrary.router')
 const deleteMangaBook = require('./routes/deleteMangaBook.router')
+const updateMangaBook = require('./routes/updateMangaBook.router')
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -31,6 +32,8 @@ app.use('/api/getmanga', getMangaRouter)
 app.use('/api/getlibrary', getMangaLibrary)
 app.use('/post/manga', postMangaBook)
 app.use('/delete/manga/library', deleteMangaBook)
+app.use('/update/manga/library', updateMangaBook)
+
 // Serve static files
 app.use(express.static('build'));
 

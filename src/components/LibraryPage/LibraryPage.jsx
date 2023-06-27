@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
@@ -25,9 +25,9 @@ const handleClick = (manga) => {
 }
 
 const handlePut = (manga) => {
-  console.log( 'Updating manga with manga_id', manga.manga_id);
+  console.log( 'Updating manga with manga_id', manga.id);
+  console.log(manga.done_reading);
   dispatch( {type: 'UPDATE_MANGA_BOOK', payload: manga.id})
-  dispatch( {type: 'GET_MANGA_LIBRARY'})
 }
 
 const handleDelete= (manga) => {
@@ -37,6 +37,8 @@ const handleDelete= (manga) => {
 }
 
 
+
+
   return (
     <>
       <div className="container">
@@ -44,21 +46,28 @@ const handleDelete= (manga) => {
       </div>
 
       <div>
-  
         {mangaLibrary.map(manga => (
           <div key={manga.id}>
-          <div>
-            {/* UPDATE DONE_READING IN DATABASE */}
-            <button onClick={() => handlePut(manga)}>Finished reading</button> 
-            {/* DELETE FROM DATABASE */}
-            <button onClick={() => handleDelete(manga)}>Remove</button>
-          </div>
-            <Link to='/library/mangadetails'
-              onClick={() => handleClick(manga)}>
-            <img src={manga.img} alt="manga_pic" />
-            <div>
-              {manga.title}
-            </div>
+
+
+            
+              <div>
+                {/* UPDATE DONE_READING IN DATABASE */}
+                <button onClick={() => handlePut(manga)}>Finished reading</button> 
+                  
+                {/* DELETE FROM DATABASE */}
+                <button onClick={() => handleDelete(manga)}>Remove</button>
+              </div>
+
+            <Link 
+              to='/library/mangadetails'
+              onClick={() => handleClick(manga)}
+            >
+              <img src={manga.img} alt="manga_pic" />
+
+              <div>
+                {manga.title}
+              </div>
             </Link>
           </div>
         ))}

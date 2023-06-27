@@ -13,10 +13,10 @@ router.delete('/:id', (req, res) => {
     const IDtoDelete = req.params.id
     pool.query(queryText, [IDtoDelete])
         .then(result => {
-            res.send(result.rows)
+            res.sendStatus(200)
         })
         .catch(err => {
-            console.log('Error in deleting manga in manga_library BD', err);
+            console.log('Error in deleting manga in manga_library DB', err);
         })
 })
 
