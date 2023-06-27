@@ -17,11 +17,22 @@ function InfoPage() {
 
   useEffect( () => {
     dispatch( {type: 'GET_MANGA_LIBRARY'} )
-}, []) 
+}, [dispatch]) 
 
 const handleClick = (manga) => {
-  console.log(manga);
+  console.log( 'open manga', manga.title);
   dispatch( {type: 'SET_MANGA_BOOK', payload: manga} )
+}
+
+const handlePut = (manga) => {
+  console.log( 'Updating manga with manga_id', manga.manga_id);
+  dispatch( {type: 'UPDATE_MANGA_BOOK', payload: manga.id})
+}
+
+const handleDelete= (manga) => {
+  console.log('Deleting manga with id', manga.id);
+  dispatch( {type: 'DELETE_MANGA_BOOK', payload: manga.id})
+  dispatch( {type: 'GET_MANGA_LIBRARY'})
 }
 
 
@@ -37,9 +48,9 @@ const handleClick = (manga) => {
           <div key={manga.id}>
           <div>
             {/* UPDATE DONE_READING IN DATABASE */}
-            <button>Finished reading</button> 
+            <button onClick={() => handlePut(manga)}>Finished reading</button> 
             {/* DELETE FROM DATABASE */}
-            <button>Remove</button>
+            <button onClick={() => handleDelete(manga)}>Remove</button>
           </div>
             <Link to='/library/mangadetails'
               onClick={() => handleClick(manga)}>

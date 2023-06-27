@@ -1,8 +1,8 @@
 import axios from 'axios';
-import { put, takeLatest } from 'redux-saga/effects';
+import { put, take, takeLatest } from 'redux-saga/effects';
 
 
-// GET MANGA SAGA
+// GET MANGAS FROM API
 function* getManga() {
     try {
       const fetchMangas = yield axios.get('/api/getmanga')
@@ -13,6 +13,7 @@ function* getManga() {
     }
   }
   
+// GET MANGA CH API
   function* getMangaCh(action) {
     try {
       const mangaChResponse = yield axios.get(`/api/getmanga/${action.payload}/mangach`)
@@ -23,6 +24,7 @@ function* getManga() {
     }
   }
 
+// SEARCH MANGA FROM API
   function* searchManga (action) {
     try {
       const searchMangaRes = yield axios.get(`api/getmanga/search/${action.payload}`)
@@ -33,7 +35,8 @@ function* getManga() {
     }
   
   }
-  
+
+  // GET MANGA RENDER IN LIBRARY
   function* getMangaLibrary () {
     try {
       const mangaLibrary = yield axios.get('/api/getlibrary')
@@ -44,6 +47,7 @@ function* getManga() {
     }
   }
 
+// ADD TO MANGA_BOOK DATABASE
   function* addToMangaBook (action) {
     console.log(action.payload);
     try{
@@ -54,6 +58,7 @@ function* getManga() {
     }
   }
 
+// ADD TO MANGA TO LIBRARY
   function* addToMangaLibrary(action) {
     try {
       yield axios.post('/post/manga/library', {manga_id: action.payload})
@@ -63,6 +68,29 @@ function* getManga() {
     }
   }
 
+// UPDATE MANGA TO DONE READING IN DATABASE
+function* updateManga(action) {
+  try {
+    yield axios.put(`/delete/manga/library/${action.payload}`)
+  }
+  catch(err) {
+    console.log('Failed to update manga_id', action.payload);
+  }
+}
+
+
+// DELETE MANGA IN LIBRARY IN DATABASE
+function* deleteMangaFromLibrary(action) {
+  try {
+    yield axios.delete(`/delete/manga/library/${action.payload}`)
+  }
+  catch(err) {
+    console.log('Failed to delete manga_id', action.payload);
+  }
+}
+
+
+
   function* mangaSaga() {
     yield takeLatest('GET_MANGA_LIST', getManga)
     yield takeLatest('GET_MANGA_CH', getMangaCh)
@@ -70,6 +98,7 @@ function* getManga() {
     yield takeLatest('GET_MANGA_LIBRARY', getMangaLibrary)
     yield takeLatest('ADD_TO_MANGA_BOOK', addToMangaBook)
     yield takeLatest('ADD_TO_MANGA_LIBRARY', addToMangaLibrary)
+    yield takeLatest('DELETE_MANGA_BOOK', deleteMangaFromLibrary)
   }
 
 export default mangaSaga

@@ -1,9 +1,7 @@
 const express = require('express');
-
-
 const  axios = require('axios')
-
 const router = express.Router();
+
 
 // GET TRENDING MANGA FROM API
 router.get('/', ( req, res) => {
@@ -34,13 +32,6 @@ router.get('/search/:title', ( req, res) => {
             res.sendStatus(500)
         })
 });
-
-// GET THE ID OF THE SELECTED MANGA
-router.get(`/:id`, ( req, res ) => {
-    console.log(`Getting manga info`);
-    console.log(req.params.id);
-    axios.get()
-})
 
 // GET THE CHAPTERS OF THE SELECTED MANGA FROM API
 router.get('/:id/mangach', async ( req, res ) => {
