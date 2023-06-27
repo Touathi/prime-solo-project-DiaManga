@@ -27,6 +27,7 @@ const handleClick = (manga) => {
 const handlePut = (manga) => {
   console.log( 'Updating manga with manga_id', manga.manga_id);
   dispatch( {type: 'UPDATE_MANGA_BOOK', payload: manga.id})
+  dispatch( {type: 'GET_MANGA_LIBRARY'})
 }
 
 const handleDelete= (manga) => {
