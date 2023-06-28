@@ -12,7 +12,7 @@ function TrendingManga() {
     return (
         <>
             <div id='TrendManga'>
-                <h3 id='header' >Trending manga</h3>
+                <h3 id='TrendHeader' >Trending manga</h3>
                     <div className='trendMangaContainer'>
                         {setTrendMangas.map(manga => (
                             <MangaBook 

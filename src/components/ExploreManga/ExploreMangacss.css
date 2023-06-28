@@ -1,4 +1,7 @@
 
+#ExploreHeader {
+    padding-left: 15px;
+}
 
 .exploreMangaContainer {
     display: flex;
@@ -6,4 +9,5 @@
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    border-top: 2px dotted #00acb0;
 }

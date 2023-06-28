@@ -13,7 +13,7 @@ function ExploreManga() {
     return (
         <>
             <div id='ExploreManga'>
-                <h3>Explore manga</h3>
+                <h3 id='ExploreHeader'>Explore manga</h3>
                 <div className='exploreMangaContainer'> 
                     {setMangas.map(manga => (
                         <MangaBook 

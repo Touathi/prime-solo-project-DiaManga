@@ -3,14 +3,16 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
+import './LibraryPagecss.css'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+
 function InfoPage() {
+
+  const history = useHistory()
 
   const dispatch = useDispatch()
   const mangaLibrary = useSelector(store => store.setMangaLibrarys.setMangaLibrary)
   console.log(mangaLibrary);
-
-  const doneReadingLibrary = useSelector(store => store.setMangaLibrarys.setDoneReadingLibrary)
-  console.log(doneReadingLibrary);
 
   useEffect( () => {
     dispatch( {type: 'GET_MANGA_LIBRARY'} )
@@ -20,7 +22,7 @@ const handleClick = (manga) => {
   console.log( 'open manga', manga.title);
   dispatch( {type: 'SET_MANGA_BOOK', payload: manga} )
   dispatch( {type: 'GET_MANGA_LIBRARY'})
-  
+  history.push(`/library/mangadetails/${manga.manga_id}`)
 }
 
 const handlePut = (manga) => {
@@ -42,7 +44,7 @@ const handleDelete= (manga) => {
     <>
       <div className="Library">
         <div>
-          <h3>Currently Reading</h3>
+          <h3>My Library</h3>
           {mangaLibrary.map((manga, i) => (
 
             // if the manga's done_reading === true then render this
@@ -56,15 +58,15 @@ const handleDelete= (manga) => {
                       </div>
                     </div>
                           
-                    <Link 
-                      to={`/library/mangadetails/${manga.manga_id}`}
-                      onClick={() => handleClick(manga)}
-                    >
+                    
+                    <div onClick={() => handleClick(manga)}>
+                      
                       <img src={manga.img} alt="manga_pic" />
-                      <div>
+                      <div className='title'>
                         {manga.title}
                       </div>
-                    </Link>
+                    </div> 
+                    
                   </div>
             ) : (
 
@@ -81,15 +83,14 @@ const handleDelete= (manga) => {
                       </div>
                     </div>
                           
-                    <Link 
-                      to={`/library/mangadetails/${manga.manga_id}`}
-                      onClick={() => handleClick(manga)}
-                    >
+                    <div onClick={() => handleClick(manga)}>
+                      
                       <img src={manga.img} alt="manga_pic" />
-                      <div>
+                      <div className='title'>
                         {manga.title}
                       </div>
-                    </Link>
+                    </div> 
+                    
                   </div>
                 )
           ))}
