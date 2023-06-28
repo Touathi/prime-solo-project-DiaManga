@@ -45,55 +45,58 @@ const handleDelete= (manga) => {
       <div className="Library">
         <div>
           <h3>My Library</h3>
-          {mangaLibrary.map((manga, i) => (
+          <div className='LibContainer'>
+            {mangaLibrary.map((manga, i) => (
 
-            // if the manga's done_reading === true then render this
-            manga.done_reading === true ? 
-            (
-                  <div key={i}>
-                    <div>
-                      <div >
-                        {/* DELETE FROM DATABASE */}
-                        <button onClick={() => handleDelete(manga)}>Remove</button>
+              // if the manga's done_reading === true then render this
+              manga.done_reading === true ? 
+              (
+                
+                    <div key={i}>
+                      <div>
+                        <div >
+                          {/* DELETE FROM DATABASE */}
+                          <button onClick={() => handleDelete(manga)}>Remove</button>
+                        </div>
                       </div>
-                    </div>
-                          
-                    
-                    <div onClick={() => handleClick(manga)}>
+                            
                       
-                      <img src={manga.img} alt="manga_pic" />
-                      <div className='title'>
-                        {manga.title}
-                      </div>
-                    </div> 
-                    
-                  </div>
-            ) : (
-
-                  // if the manga's done_reading === !true then render this
-                  <div key={i}>
-                    <div>
-                      <div >
-                        {/* UPDATE DONE_READING IN DATABASE */}
-                        <button onClick={() => handlePut(manga)}>Finished reading</button>
-                      </div>
-                      <div >
-                        {/* DELETE FROM DATABASE */}
-                        <button onClick={() => handleDelete(manga)}>Remove</button>
-                      </div>
+                      <div onClick={() => handleClick(manga)}>
+                        
+                        <img src={manga.img} alt="manga_pic" />
+                        <div className='title'>
+                          {manga.title}
+                        </div>
+                      </div> 
                     </div>
-                          
-                    <div onClick={() => handleClick(manga)}>
-                      
-                      <img src={manga.img} alt="manga_pic" />
-                      <div className='title'>
-                        {manga.title}
+                
+              ) : (
+                <div className='LibContainer'>
+                    {/* // if the manga's done_reading === !true then render this */}
+                    <div key={i}>
+                      <div>
+                        <div >
+                          {/* UPDATE DONE_READING IN DATABASE */}
+                          <button onClick={() => handlePut(manga)}>Finished reading</button>
+                        </div>
+                        <div >
+                          {/* DELETE FROM DATABASE */}
+                          <button onClick={() => handleDelete(manga)}>Remove</button>
+                        </div>
                       </div>
-                    </div> 
-                    
-                  </div>
-                )
-          ))}
+                            
+                      <div onClick={() => handleClick(manga)}>
+                        
+                        <img src={manga.img} alt="manga_pic" />
+                        <div className='title'>
+                          {manga.title}
+                        </div>
+                      </div> 
+                    </div>
+                </div>
+                  )
+            ))}
+          </div>
         </div>
       </div>
     </>

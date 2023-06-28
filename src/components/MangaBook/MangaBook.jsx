@@ -2,11 +2,13 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import './MangaBookcss.css'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 
 
 function MangaBook({manga}) {
 
+    const history = useHistory()
 
     const dispatch = useDispatch();
     console.log(manga.attributes.canonicalTitle);
@@ -24,9 +26,6 @@ function MangaBook({manga}) {
     return (
         <>
             <div>
-                <div className='Title'>
-                    {manga.attributes.canonicalTitle}
-                </div>
                 <Link to={`/mangadetails/${manga.id}`}>
                     <img className='MangaPoster'
                         key={manga.id}  
@@ -35,6 +34,9 @@ function MangaBook({manga}) {
                         onClick={() => handleClick(manga)}
                     />
                 </Link>
+                <div className='Title'>
+                    {manga.attributes.canonicalTitle}
+                </div>
             </div>
         </>
     )

@@ -1,4 +1,23 @@
+.Library {
+    margin-left: 15px;
+}
+
 .title {
     color: white;
     text-decoration: none;
+}
+
+.LibContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+.title {
+    width: 140px;
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis
 }

@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 
-// GET TRENDING MANGA FROM API
+// GET RECENTLY UPDATED MANGA FROM API
 router.get('/', ( req, res) => {
     console.log(`getting Mangas`);
     axios.get('https://kitsu.io/api/edge/manga?page%5Blimit%5D=20&page%5Boffset%5D=0&sort=-updatedAt')

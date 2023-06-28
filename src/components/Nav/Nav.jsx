@@ -43,7 +43,7 @@ function Nav() {
                 </>
               )}
           </div>
-            <div>
+            <div id='search'>
               <SearchForm />
             </div>
         </div>
