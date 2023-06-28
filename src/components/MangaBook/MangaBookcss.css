@@ -1,0 +1,12 @@
+
+.MangaPoster {
+    height: 160px;
+    width: 120px;
+}
+
+.Title {
+    width: 140px;
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis   
+}

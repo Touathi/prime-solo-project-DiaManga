@@ -1,0 +1,10 @@
+
+
+#homeBody {
+    margin: 3px;
+    display: flex;
+}
+
+#trendManga {
+    border-left: 2px dotted #00acb0;
+}

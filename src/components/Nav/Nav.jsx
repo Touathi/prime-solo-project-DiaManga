@@ -4,8 +4,12 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import { useSelector } from 'react-redux';
 
+import SearchForm from '../SearchForm/SearchForm';
+
 function Nav() {
   const user = useSelector((store) => store.user);
+
+  
 
   return (
     <div className="nav">
@@ -13,33 +17,36 @@ function Nav() {
         <h2 className="nav-title">DiaM💎nga</h2>
       </Link>
       <div>
-        {/* If no user is logged in, show these links */}
-        {!user.id && (
-          // If there's no user, show login/registration links
-          <Link className="navLink" to="/login">
-            Login / Register
-          </Link>
-        )}
+        <div>
+            {/* If no user is logged in, show these links */}
+            {!user.id && (
+              // If there's no user, show login/registration links
+              <Link className="navLink" to="/login">
+                Login / Register
+              </Link>
+            )}
 
-        {/* If a user is logged in, show these links */}
-        {user.id && (
-          <>
-            <Link className="navLink" to="/home">
-              Home
-            </Link>
+            {/* If a user is logged in, show these links */}
+              {user.id && (
+                <>
+                  <Link className="navLink" to="/home">
+                    Home
+                  </Link>
 
-            <Link className="navLink" to="/library">
-              Library
-            </Link>
+                  <Link className="navLink" to="/library">
+                    Library
+                  </Link>
 
-            <LogOutButton 
-              className="navLink"
-              user={user.id} />
-          </>
-        )}
-
-        
-      </div>
+                  <LogOutButton 
+                    className="navLink"
+                    user={user.id} />
+                </>
+              )}
+          </div>
+            <div>
+              <SearchForm />
+            </div>
+        </div>
     </div>
   );
 }

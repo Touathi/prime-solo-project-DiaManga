@@ -21,7 +21,7 @@ router.get('/', ( req, res) => {
 // GET TRENDING MANGA FROM API
 router.get('/trend', ( req, res) => {
     console.log(`getting Mangas`);
-    axios.get('https://kitsu.io/api/edge/trending/manga/?limit=25')
+    axios.get('https://kitsu.io/api/edge/trending/manga/?limit=20')
         .then( response => {
             console.log(response.data);
             res.send(response.data)
