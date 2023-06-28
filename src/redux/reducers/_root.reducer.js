@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 import errors from './errors.reducer';
 import user from './user.reducer';
-import setManga from './setManga.reducer'
+import SetMangaHome from './setManga.reducer'
 import setMangaBook from './setMangaBook.reducer';
 import setMangaChapters from './setMangaCh.reducer';
 import setSearchManga from './setSearchManga.reducer';
-import setMangaLibrary from './setMangaLibrary';
+import setMangaLibrarys from './setMangaLibrary';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -16,11 +16,11 @@ import setMangaLibrary from './setMangaLibrary';
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user, // will have an id and username if someone is logged in
-  setManga, // Renders manga onto the home page
+  SetMangaHome, // Renders manga onto the home page
   setMangaBook, // Holds the info of the selected manga
   setMangaChapters, // contains the chapters of the selected manga
   setSearchManga, // holds searched up mangas
-  setMangaLibrary // Contains all the manga in the library Database
+  setMangaLibrarys // Contains all the manga in the library Database
 });
 
 export default rootReducer;

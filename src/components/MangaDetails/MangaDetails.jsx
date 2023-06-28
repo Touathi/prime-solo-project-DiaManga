@@ -1,11 +1,13 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import MangaCh from '../MangaCh/MangaCh';
+import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 
 function MangaDetails() {
 
     
     const dispatch = useDispatch();
+    const params = useParams();
 
     const mangaDetails = useSelector(store => store.setMangaBook)
     console.log(mangaDetails);

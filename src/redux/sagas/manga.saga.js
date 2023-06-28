@@ -3,6 +3,7 @@ import { put, take, takeLatest } from 'redux-saga/effects';
 
 
 // GET MANGAS FROM API
+
 function* getManga() {
     try {
       const fetchMangas = yield axios.get('/api/getmanga')
@@ -12,7 +13,16 @@ function* getManga() {
       console.log('Error in getting manga', error);
     }
   }
-  
+
+function* getTrendManga() {
+    try {
+      const fetcTrendMangas = yield axios.get('/api/getmanga/trend')
+      yield put ( {type:'SET_TREND_MANGA_BOOK', payload: fetcTrendMangas.data})
+    }
+    catch( error ) {
+      console.log('Error in getting manga', error);
+    }
+  }
 // GET MANGA CH API
   function* getMangaCh(action) {
     try {
@@ -41,6 +51,16 @@ function* getManga() {
     try {
       const mangaLibrary = yield axios.get('/api/getlibrary')
       yield put ( {type: 'SET_MANGA_LIBRARY', payload: mangaLibrary.data} )
+    }
+    catch(err) {
+      console.log('Error in getting manga library', err);
+    }
+  }
+
+  function* getDoneReadingLibrary () {
+    try {
+      const mangaLibrary = yield axios.get('/api/getlibrary')
+      yield put ( {type: 'SET_DONE_READING_LIBRARY', payload: mangaLibrary.data} )
     }
     catch(err) {
       console.log('Error in getting manga library', err);
@@ -93,6 +113,7 @@ function* deleteMangaFromLibrary(action) {
 
   function* mangaSaga() {
     yield takeLatest('GET_MANGA_LIST', getManga)
+    yield takeLatest('GET_TREND_MANGA_LIST', getTrendManga)
     yield takeLatest('GET_MANGA_CH', getMangaCh)
     yield takeLatest('SEARCH_MANGA', searchManga)
     yield takeLatest('GET_MANGA_LIBRARY', getMangaLibrary)
@@ -100,6 +121,7 @@ function* deleteMangaFromLibrary(action) {
     yield takeLatest('ADD_TO_MANGA_LIBRARY', addToMangaLibrary)
     yield takeLatest('UPDATE_MANGA_BOOK', updateManga)
     yield takeLatest('DELETE_MANGA_BOOK', deleteMangaFromLibrary)
+    yield takeLatest('GET_DONE_READING_LIBRARY', getDoneReadingLibrary)
   }
 
 export default mangaSaga

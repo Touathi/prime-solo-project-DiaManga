@@ -37,7 +37,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <Router>
+    <Router className='container'>
       <div>
         <Nav />
         <Switch>
@@ -113,7 +113,7 @@ function App() {
           {/* MANGA DETAIL PAGE */}
           <Route
             exact
-            path="/mangadetails"
+            path="/mangadetails/:id"
           >
             <MangaDetails />
           </Route>
@@ -121,7 +121,7 @@ function App() {
            {/* MANGA DETAIL PAGE */}
            <Route
             exact
-            path="/library/mangadetails"
+            path="/library/mangadetails/:id"
           >
             <LMangaDetail />
           </Route>

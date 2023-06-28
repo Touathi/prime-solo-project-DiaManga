@@ -8,14 +8,17 @@ function HomePage() {
     const dispatch = useDispatch();
     const history = useHistory()
 
-    const setMangas = useSelector( store => store.setManga)
+    const setMangas = useSelector( store => store.SetMangaHome.setManga)
     console.log(setMangas);
+
+    const setTrendMangas = useSelector( store => store.SetMangaHome.setTrendManga)
 
     const [input, setInput] = useState('')
 
     useEffect( () => {
         dispatch( {type: 'GET_MANGA_LIST'} )
-    }, []) 
+        dispatch( {type: 'GET_TREND_MANGA_LIST'} )
+    }, [dispatch]) 
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -45,8 +48,19 @@ function HomePage() {
                 </form>
                 
             </div>
-            <div>
+            <div id='ExploreManga'>
+                <h3>Explore Manga</h3>
                 {setMangas.map(manga => (
+                    <MangaBook 
+                        manga={manga}
+                        key={manga.id} 
+                    />
+                ))}
+            </div>
+            
+            <div id='TrendManga'>
+                <h3>Trending manga</h3>
+                {setTrendMangas.map(manga => (
                     <MangaBook 
                         manga={manga}
                         key={manga.id} 

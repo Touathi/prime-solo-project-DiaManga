@@ -1,3 +1,5 @@
+import { combineReducers } from "redux";
+
 
 // setMangaList Reducer
 const setManga = (state = [], action) => {
@@ -9,5 +11,18 @@ const setManga = (state = [], action) => {
     }
   }
 
+  const setTrendManga = (state = [], action) => {
+    switch(action.type)  {
+     case 'SET_TREND_MANGA_BOOK':
+       return action.payload.data;
+         default:
+             return state;
+    }
+  }
 
-  export default setManga
+  const SetMangaHome = combineReducers({
+    setManga,
+    setTrendManga  
+  })
+
+  export default SetMangaHome
