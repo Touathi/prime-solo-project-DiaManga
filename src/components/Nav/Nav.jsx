@@ -39,7 +39,7 @@ function Nav() {
 
                   <LogOutButton 
                     className="navLink"
-                    user={user.id} />
+                    user={user.username} />
                 </>
               )}
           </div>

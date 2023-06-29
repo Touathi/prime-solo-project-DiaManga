@@ -6,5 +6,17 @@
 }
 
 #trendManga {
-    border-left: 2px dotted #00acb0;
+    border-left: 5px dotted #00acb0;
+}
+
+.column {
+    float: left
+}
+
+.Left {
+    width: 65%;
+}
+
+.Right {
+    width: 35%;
 }

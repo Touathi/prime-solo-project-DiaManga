@@ -11,7 +11,7 @@ function SearchForm() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        history.push("/search")
+        history.push(`/search/${input}`)
 
         dispatch({
             type:'SEARCH_MANGA',

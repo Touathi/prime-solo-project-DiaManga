@@ -104,26 +104,48 @@ function App() {
           {/* SEARCH PAGE */}
           <Route
             exact
-            path="/search"
+            path="/search/:title"
           >
-            <SearchManga />
+            {!user.id ?
+              // If the user is already logged in, 
+              // redirect them to the /user page
+              <Redirect to="/home" />
+              :
+              // Otherwise, show the registration page
+              <SearchManga />
+            }
           </Route>
           
 
           {/* MANGA DETAIL PAGE */}
           <Route
             exact
-            path="/mangadetails/:id"
+            path="/mangadetails/:id/:title"
           >
-            <MangaDetails />
+          
+            {!user.id ?
+              // If the user is already logged in, 
+              // redirect them to the /user page
+              <Redirect to="/home" />
+              :
+              // Otherwise, show the registration page
+              <MangaDetails />
+            }
           </Route>
 
            {/* MANGA DETAIL PAGE */}
            <Route
             exact
-            path="/library/mangadetails/:id"
-          >
-            <LMangaDetail />
+            path="/library/mangadetails/:id/:title"
+            >
+            {!user.id ?
+              // If the user is already logged in, 
+              // redirect them to the /user page
+              <Redirect to="/home" />
+              :
+              // Otherwise, show the registration page
+              <LMangaDetail />
+            }
           </Route>
           
 

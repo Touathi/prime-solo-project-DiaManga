@@ -15,10 +15,12 @@ function TrendingManga() {
                 <h3 id='TrendHeader' >Trending manga</h3>
                     <div className='trendMangaContainer'>
                         {setTrendMangas.map(manga => (
-                            <MangaBook 
-                                manga={manga}
-                                key={manga.id} 
-                            />
+                            <div className='trendBook'>
+                                <MangaBook 
+                                    manga={manga}
+                                    key={manga.id} 
+                                />
+                            </div>
                         ))}
                     </div>
             </div>

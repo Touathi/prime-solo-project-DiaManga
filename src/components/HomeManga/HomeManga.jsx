@@ -20,11 +20,11 @@ function HomePage() {
     return (
         <>
             <div id='homeBody'>
-                <div id='exploreManga'>
+                <div id='exploreManga' className='column Left'>
                     <ExploreManga />
                 </div>
                 
-                <div id='trendManga'>
+                <div id='trendManga' className='column Right'>
                     <TrendingManga />
                 </div>
             </div>

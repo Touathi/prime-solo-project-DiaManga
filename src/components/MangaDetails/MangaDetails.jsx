@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import MangaCh from '../MangaCh/MangaCh';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 
+import './MangaDetailscss.css'
+
 function MangaDetails() {
 
     
@@ -27,7 +29,7 @@ function MangaDetails() {
             payload: {
                 manga_id: mangaDetails.id,
                 title: mangaDetails.attributes.canonicalTitle,
-                img: mangaDetails.attributes.posterImage.tiny,
+                img: mangaDetails.attributes.posterImage.original,
                 avg_rate: mangaDetails.attributes.averageRating,
                 description: mangaDetails.attributes.synopsis,
                 start_date: mangaDetails.attributes.startDate,
@@ -42,19 +44,21 @@ function MangaDetails() {
 
     return (
         <>
-            <div>
-                <button onClick={handleClick}>Add to favorite</button>
-            </div>    
-            <div>
-                <p>{mangaDetails.attributes.canonicalTitle}</p>
-                <img src={mangaDetails.attributes.posterImage.tiny}/>
-                <p>{mangaDetails.attributes.averageRating}/100</p>
-                <p>{mangaDetails.attributes.synopsis}</p>
-            </div>
+            <div id='detailBody'>
+                <div>
+                    <button onClick={handleClick}>Add to favorite</button>
+                </div>    
+                <div>
+                    <p className='title'>{mangaDetails.attributes.canonicalTitle}</p>
+                    <img src={mangaDetails.attributes.posterImage.original} className='poster'/>
+                    <p className='rating'>{mangaDetails.attributes.averageRating}/100</p>
+                    <p className='description'>{mangaDetails.attributes.synopsis}</p>
+                </div>
 
-            <div>
-                <h3>Chapters</h3>
-                <MangaCh />
+                <div>
+                    <h3>Chapters</h3>
+                    <MangaCh />
+                </div>
             </div>
         </>
     )

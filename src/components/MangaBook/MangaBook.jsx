@@ -25,8 +25,8 @@ function MangaBook({manga}) {
     
     return (
         <>
-            <div>
-                <Link to={`/mangadetails/${manga.id}`}>
+            <div className='mangaBook'>
+                <Link to={`/mangadetails/${manga.id}/${manga.attributes.canonicalTitle}`}>
                     <img className='MangaPoster'
                         key={manga.id}  
                         src={manga.attributes.posterImage.original}

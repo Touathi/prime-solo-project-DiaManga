@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import MangaCh from '../MangaCh/MangaCh';
+import './LMangaDetailcss.css'
 
 function LMangaDetail() {
     
@@ -20,15 +21,17 @@ function LMangaDetail() {
     console.log('The selected manga is', mangaDetails.title);
     return (
         <>
-            <div>
-                <p>{mangaDetails.title}</p>
-                <img src={mangaDetails.img} />
-                <p>{mangaDetails.avg_rate}/100</p>
-                <p>{mangaDetails.description}</p>
-            </div>
-            <div>
-                <h3>Chapters</h3>
-                <MangaCh />
+            <div id='LDetailBody'>
+                <div>
+                    <p className='LDetailtitle'>{mangaDetails.title}</p>
+                    <img src={mangaDetails.img} className='LDetailposter'/>
+                    <p className='rating'>{mangaDetails.avg_rate}/100</p>
+                    <p className='discription'>{mangaDetails.description}</p>
+                </div>
+                <div>
+                    <h3>Chapters</h3>
+                    <MangaCh />
+                </div>
             </div>
         </>
     )

@@ -7,17 +7,28 @@
     text-decoration: none;
 }
 
-.LibContainer {
+.mapLibContainer {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     
 }
 
-.title {
+.Libtitle {
     width: 140px;
     white-space: wrap;
     overflow: hidden;
     text-overflow: ellipsis
+}
+
+.Libposter {
+    height: 160px;
+    width: 120px;
+}
+
+.mangaBook {
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
 }

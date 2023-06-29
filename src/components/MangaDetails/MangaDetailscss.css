@@ -1,0 +1,14 @@
+
+
+#detailBody {
+    margin: 20px;
+}
+
+.poster {
+    height: 480px;
+    width: 360px;
+}
+
+.title {
+    font-size: 20pt;
+}
