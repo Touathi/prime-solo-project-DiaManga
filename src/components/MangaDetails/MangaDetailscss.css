@@ -4,11 +4,49 @@
     margin: 20px;
 }
 
-.poster {
-    height: 480px;
-    width: 360px;
+.DetailPoster {
+    height: 400px;
+    width: 300px;
 }
 
-.title {
+#title {
     font-size: 20pt;
+}
+
+#ratingbox {
+    padding: 20px;
+}
+
+#rating {
+    font-weight: bolder;
+}
+
+#descriptionbox {
+    padding: 20px;
+}
+
+#description {
+    font-weight: bolder;
+}
+
+
+#detailbody {
+    display: flex
+}
+
+#chapters {
+    font-weight: bolder;
+}
+
+.detailbox {
+    display: flex;
+    align-items: flex-start;
+}
+
+.addBtn {
+    float: right;
+}
+
+#chapterbox {
+    margin-left: 20px;
 }

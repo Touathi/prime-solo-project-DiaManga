@@ -1,11 +1,16 @@
 
-.LDetailposter {
-    height: 480px;
-    width: 360px;
+#LDetailBody {
+    margin: 20px;  
 }
 
-#LDetailBody {
-    margin: 20px;
+.LDetailposter {
+    height: 400px;
+    width: 300px;
+}
+
+#LDetailBox {
+    display: flex;
+    align-items: flex-start;
 }
 
 .LDetailtitle {

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import MangaCh from '../MangaCh/MangaCh';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
@@ -9,8 +9,9 @@ function MangaDetails() {
 
     
     const dispatch = useDispatch();
-    const params = useParams();
 
+    const [ selected, setSelected ] = useState(false)
+    
     const mangaDetails = useSelector(store => store.setMangaBook)
     console.log(mangaDetails);
 
@@ -35,29 +36,58 @@ function MangaDetails() {
                 start_date: mangaDetails.attributes.startDate,
                 updated_at: mangaDetails.attributes.updatedAt,
                 status: mangaDetails.attributes.status
-            }
+            } 
         })
-
-        dispatch( {type: 'ADD_TO_MANGA_LIBRARY', payload: mangaDetails.id})
+        console.log('Add to library');
+        console.log('manga_id is', mangaDetails.id );
+        dispatch( {type: 'ADD_TO_MANGA_LIBRARY', payload: {manga_id: mangaDetails.id} })
+        setSelected(!selected)
     }
 
 
     return (
         <>
             <div id='detailBody'>
-                <div>
-                    <button onClick={handleClick}>Add to favorite</button>
-                </div>    
-                <div>
-                    <p className='title'>{mangaDetails.attributes.canonicalTitle}</p>
-                    <img src={mangaDetails.attributes.posterImage.original} className='poster'/>
-                    <p className='rating'>{mangaDetails.attributes.averageRating}/100</p>
-                    <p className='description'>{mangaDetails.attributes.synopsis}</p>
+                
+
+                <div id='title'>
+                    <p>{mangaDetails.attributes.canonicalTitle}</p>
+                </div> 
+
+                <div className='detailbox'>           
+                    <img src={mangaDetails.attributes.posterImage.original} className='DetailPoster'/>   
+                    <div>
+                        <div className='addBtn'>
+                            {!selected ? (
+                                <div>
+                                    <button onClick={handleClick}>Add to favorite</button>
+                                </div> 
+                            ) : (
+                                <p>Added to favorite</p>
+                            )}
+                        </div>
+
+                        <div id='ratingbox'>
+                            <p id='rating'>Rating:</p>
+                            {mangaDetails.attributes.averageRating ? (
+                                <p>
+                                    {mangaDetails.attributes.averageRating}/100
+                                </p> ) : (
+                                <p>No ratings yet</p>
+                            )}
+                        </div>  
+
+                        <div id='descriptionbox'>
+                            <p id='description'>Description:</p>
+                            <p className='description'>  {mangaDetails.attributes.synopsis}</p> 
+                        </div>
+                    </div>
                 </div>
 
-                <div>
+                <div id='chapterbox'>
                     <h3>Chapters</h3>
-                    <MangaCh />
+                    <MangaCh 
+                        mangaDetails={mangaDetails}/>
                 </div>
             </div>
         </>

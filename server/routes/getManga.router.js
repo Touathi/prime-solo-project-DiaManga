@@ -5,25 +5,37 @@ const router = express.Router();
 
 
 // GET RECENTLY UPDATED MANGA FROM API
-router.get('/', ( req, res) => {
-    console.log(`getting Mangas`);
-    axios.get('https://kitsu.io/api/edge/manga?page%5Blimit%5D=20&page%5Boffset%5D=0&sort=-updatedAt')
-        .then( response => {
-            console.log(response.data);
-            res.send(response.data)
-        })
-        .catch( error => {
-            console.log('Error in getting mangas', error);
-            res.sendStatus(500)
-        })
-});
+// Get the recently updated mangas from api and loop thru the next link
+router.get('/', async (req, res) => {
+    try {
+        console.log('getting updated manga in loop');
+        let mangas = [];
+        let results = await axios.get('https://kitsu.io/api/edge/manga?page%5Blimit%5D=10&page%5Boffset%5D=0&sort=-updatedAt')
+        let maxTries = 2
+        let numberOfRuns = 0
+        // add to mangas
+        // console.log('data:', results.data.data);
+        mangas.push(...results.data.data)
+        console.log('links',results.data.links.next);
+        while (results.data.links.next && numberOfRuns < maxTries) {
+            numberOfRuns += 1;
+            results = await axios.get(results.data.links.next)
+            mangas.push(...results.data.data)
+        }
+        res.send(mangas)
+    } catch(error) {
+        console.log('Error in looping thru updated mangas', error);
+        res.sendStatus(500)
+    }
+})
+
 
 // GET TRENDING MANGA FROM API
 router.get('/trend', ( req, res) => {
-    console.log(`getting Mangas`);
+    console.log(`getting Trending Mangas`);
     axios.get('https://kitsu.io/api/edge/trending/manga/?limit=20')
         .then( response => {
-            console.log(response.data);
+            console.log('trend route',response.data);
             res.send(response.data)
         })
         .catch( error => {
@@ -61,7 +73,7 @@ router.get('/:id/mangach', async ( req, res ) => {
         chapters.push(...results.data.data)
         // console.log(results.data.links.next)
         // keep asking for more chapters
-        while (results.data.links.next && numberOfRuns < maxTries) {
+        while (results.data.links.next && numberOfRuns <= maxTries) {
             numberOfRuns += 1;
             results = await axios.get(results.data.links.next);
             chapters.push(...results.data.data);

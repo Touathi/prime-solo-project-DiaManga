@@ -19,6 +19,7 @@ function MangaBook({manga}) {
     const handleClick = (manga) => {
         console.log(manga);
         dispatch( {type: 'SET_MANGA_BOOK', payload: manga} )
+        window.scrollTo(0,0)
     }
 
 

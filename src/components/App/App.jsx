@@ -21,6 +21,7 @@ import HomePage from '../HomeManga/HomeManga';
 import SearchManga from '../SearchManga/SearchManga'
 import MangaDetails from '../MangaDetails/MangaDetails';
 import LMangaDetail from '../LMangaDetail/LMangaDetail';
+import InChapter from '../InChapter/InChaper';
 
 
 
@@ -136,7 +137,7 @@ function App() {
            {/* MANGA DETAIL PAGE */}
            <Route
             exact
-            path="/library/mangadetails/:id/:title"
+            path='/library/mangadetails/:id/:title'
             >
             {!user.id ?
               // If the user is already logged in, 
@@ -146,6 +147,13 @@ function App() {
               // Otherwise, show the registration page
               <LMangaDetail />
             }
+          </Route>
+
+          <Route 
+            exact
+            path='/workingprogress/chapter'>
+            
+            <InChapter />
           </Route>
           
 

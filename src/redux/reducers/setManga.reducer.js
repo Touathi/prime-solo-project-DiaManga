@@ -5,7 +5,7 @@ import { combineReducers } from "redux";
 const setManga = (state = [], action) => {
     switch(action.type)  {
      case 'SET_MANGAS':
-       return action.payload.data;
+       return action.payload;
          default:
              return state;
     }

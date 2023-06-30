@@ -30,14 +30,16 @@ router.post('/', (req, res) => {
 })
 
 router.post('/library', (req, res) => {
-    console.log(req.user.id);
-    console.log(req.body);
+    console.log('user id is', req.user.id);
+    console.log('req.body is', req.body);
+    console.log('req.body is', req.body.manga_id);
     const queryText = `
         INSERT INTO "manga_library" ("user_id", "manga_book_id")
         VALUES ($1, $2);
     `
     const userID = req.user.id
-    pool.query(queryText, [userID, req.body.manga_id])
+    const manga_id = req.body.manga_id
+    pool.query(queryText, [userID, manga_id])
         .then(result => {
             res.sendStatus(200);
         })

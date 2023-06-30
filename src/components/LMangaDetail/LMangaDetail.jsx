@@ -23,15 +23,31 @@ function LMangaDetail() {
         <>
             <div id='LDetailBody'>
                 <div>
-                    <p className='LDetailtitle'>{mangaDetails.title}</p>
-                    <img src={mangaDetails.img} className='LDetailposter'/>
-                    <p className='rating'>{mangaDetails.avg_rate}/100</p>
-                    <p className='discription'>{mangaDetails.description}</p>
+                    <p className='LDetailtitle'>{mangaDetails.title}</p> 
                 </div>
-                <div>
-                    <h3>Chapters</h3>
-                    <MangaCh />
-                </div>
+                    <div id='LDetailBox'>
+                        <img src={mangaDetails.img} className='LDetailposter'/>
+
+                        <div>
+                            <div id='ratingbox'>
+                                <p id='rating'>Rating:</p>
+                                    {mangaDetails.avg_rate ? (
+                                        <p> 
+                                        {mangaDetails.avg_rate}/100</p> ) : ( 
+                                        <p>No ratings yet</p>
+                                    )}
+                            </div>
+
+                            <div id='descriptionbox'>
+                                <p id='description'>Description:</p>
+                                <p> {mangaDetails.description}</p> 
+                            </div>
+                        </div>
+                    </div>
+                    <div id='chapterbox'>
+                        <h3 >Chapters</h3>
+                        <MangaCh/>
+                    </div>          
             </div>
         </>
     )

@@ -80,8 +80,9 @@ function* getTrendManga() {
 
 // ADD TO MANGA TO LIBRARY
   function* addToMangaLibrary(action) {
+    console.log(action.payload);
     try {
-      yield axios.post('/post/manga/library', {manga_id: action.payload})
+      yield axios.post('/post/manga/library', action.payload)
     }
     catch(err) {
       console.log('Error in posting in manga_library database');
@@ -101,14 +102,27 @@ function* updateManga(action) {
 
 // DELETE MANGA IN LIBRARY IN DATABASE
 function* deleteMangaFromLibrary(action) {
+  console.log(action.payload);
+
   try {
-    yield axios.delete(`/delete/manga/library/${action.payload}`)
+    yield axios.delete(`/delete/manga/library/${action.payload.id}`)
   }
   catch(err) {
-    console.log('Failed to delete manga_id', action.payload);
+    console.log('Failed to delete manga_id', action.payload.id);
   }
 }
 
+// DELETE MANGA IN LIBRARY IN DATABASE
+function* deleteMangaFromBook(action) {
+  console.log(action.payload);
+
+  try {
+    yield axios.delete(`/delete/manga/library/mangabook/${action.payload.mangaid}`)
+  }
+  catch(err) {
+    console.log('Failed to delete manga_id', action.payload.mangaid);
+  }
+}
 
 
   function* mangaSaga() {
@@ -121,6 +135,7 @@ function* deleteMangaFromLibrary(action) {
     yield takeLatest('ADD_TO_MANGA_LIBRARY', addToMangaLibrary)
     yield takeLatest('UPDATE_MANGA_BOOK', updateManga)
     yield takeLatest('DELETE_MANGA_BOOK', deleteMangaFromLibrary)
+    yield takeLatest('DELETE_MANGA_BOOK', deleteMangaFromBook)
     yield takeLatest('GET_DONE_READING_LIBRARY', getDoneReadingLibrary)
   }
 

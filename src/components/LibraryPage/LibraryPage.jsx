@@ -33,8 +33,8 @@ const handlePut = (manga) => {
 }
 
 const handleDelete= (manga) => {
-  console.log('Deleting manga with id', manga.id);
-  dispatch( {type: 'DELETE_MANGA_BOOK', payload: manga.id})
+  console.log('Deleting manga with id', manga.id, manga.manga_id);
+  dispatch( {type: 'DELETE_MANGA_BOOK', payload: {id: manga.id, mangaid: manga.manga_id}} )
   dispatch( {type: 'GET_MANGA_LIBRARY'})
 }
 
@@ -52,19 +52,19 @@ const handleDelete= (manga) => {
               manga.done_reading === true ? 
               (
                       <div key={i}  className='mangaBook'>
-                        <div >                        
-                          {/* DELETE FROM DATABASE */}
-                          <button onClick={() => handleDelete(manga)}>Remove</button>                    
-                        </div>
 
                         <div onClick={() => handleClick(manga)}>
-                          <Link to={`/library/mangadetails/${manga.manga_id}`}>
-                          <img src={manga.img} alt="manga_pic" className='poster' />
+                          <Link to={`/library/mangadetails/${manga.manga_id}/${manga.title}`}>
+                          <img src={manga.img} alt="manga_pic" className='Libposter' />
                           </Link>
 
-                          <div className='title'>
+                          <div className='Libtitle'>
                             {manga.title}
-                          </div>                        
+                          </div>
+                          <div >
+                          {/* DELETE FROM DATABASE */}
+                          <button onClick={() => handleDelete(manga)}>Remove</button>
+                        </div>
                         </div>
 
                       </div>
@@ -79,11 +79,8 @@ const handleDelete= (manga) => {
                           {/* UPDATE DONE_READING IN DATABASE */}
                           <button onClick={() => handlePut(manga)}>Finished reading</button>
                         </div>
+                        
 
-                        <div >
-                          {/* DELETE FROM DATABASE */}
-                          <button onClick={() => handleDelete(manga)}>Remove</button>
-                        </div>
 
                       </div>
                             
@@ -95,6 +92,10 @@ const handleDelete= (manga) => {
 
                         <div className='Libtitle'>
                           {manga.title}
+                        </div>
+                        <div >
+                          {/* DELETE FROM DATABASE */}
+                          <button onClick={() => handleDelete(manga)}>Remove</button>
                         </div>
 
                       </div> 

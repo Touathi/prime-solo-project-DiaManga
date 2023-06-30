@@ -1,0 +1,11 @@
+
+.chapterbtn {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0px;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    margin-bottom: 20px;
+}
