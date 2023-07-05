@@ -13,7 +13,7 @@ function ExploreManga() {
     const setMangas = useSelector( store => store.SetMangaHome.setManga)
     const [loading] = useState(false)
     const [currentPage, setCurrentPage] = useState(1);
-    const [mangasPerPage] = useState(40)
+    const [mangasPerPage] = useState(30)
 
     // get current post
     const indexOfLastPost = currentPage * mangasPerPage;
