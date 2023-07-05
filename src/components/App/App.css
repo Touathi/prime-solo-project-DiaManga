@@ -7,7 +7,7 @@ body,
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0px;
-  background-color:hsla(0, 0%, 0%, 0.66);
+  background-color: #1f2833;
   color: white;
 }
 
@@ -57,7 +57,7 @@ Button
 }
 
 .btn:hover {
-  background-color: #008183;
+  background-color: #5CDB95;
   text-decoration: none;
 }
 

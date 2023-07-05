@@ -1,12 +1,11 @@
 
 
 #homeBody {
-    margin: 3px;
     display: flex;
 }
 
 #trendManga {
-    border-left: 5px solid #00acb0;
+    border-left: 5px solid #45a29e;
 }
 
 .column {

@@ -63,7 +63,7 @@ function MangaDetails() {
 
                        
                     <div>
-                        <div className='addBtn'>
+                        <div className='addBtn me-5 pe-5'>
                             {!selected ? (
                                 <div>
                                     <button onClick={handleClick}>Add to favorite</button>

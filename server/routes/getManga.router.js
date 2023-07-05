@@ -43,21 +43,7 @@ router.get('/trend', ( req, res) => {
         })
 });
 
-// // GET SEARCHED TITLE MANGA FROM API
-// router.get('/search/:title', ( req, res) => {
-//     console.log(`getting search Mangas`);
-//     console.log(req.params.title);
-//     const query = req.params.title
-//     axios.get(`https://kitsu.io/api/edge/manga?filter[text]=${query}`)
-//         .then( response => {
-//             console.log(response.data);
-//             res.send(response.data)
-//         })
-//         .catch( error => {
-//             console.log('Error in getting mangas', error);
-//             res.sendStatus(500)
-//         })
-// });
+
 router.get('/search/:title', async (req, res) => {
     try {
         console.log(`getting search Mangas`);
@@ -69,7 +55,6 @@ router.get('/search/:title', async (req, res) => {
         let numberOfRuns = 0
         
         // add to searchMangas
-        console.log('data: first', results.data.data);
         searchMangas.push(...results.data.data)
         // console.log('links',results.data.links.next);
         while (results.data.links.next && numberOfRuns < maxTries) {
@@ -96,7 +81,6 @@ router.get('/:id/mangach', async ( req, res ) => {
         let numberOfRuns = 0;
         // add our chapters
         chapters.push(...results.data.data)
-        // console.log(results.data.links.next)
         // keep asking for more chapters
         while (results.data.links.next && numberOfRuns <= maxTries) {
             numberOfRuns += 1;

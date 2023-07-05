@@ -29,7 +29,7 @@ function Nav() {
             {/* If a user is logged in, show these links */}
               {user.id && (
                 <>
-                  <div>
+                  <div className='ms-5 ps-5'>
                   <Link className="navLink" to="/home">
                     Home
                   </Link>
@@ -43,14 +43,12 @@ function Nav() {
                     user={user.username} />
                   </div> 
 
-                  <div id='search'>
+                  <div className='search me-5'>
                     <SearchForm />
                   </div>
                 </>
-                
               )}
           </div>
-
         </div>
     </div>
   );

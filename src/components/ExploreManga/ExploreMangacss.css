@@ -1,5 +1,6 @@
 
 #ExploreHeader {
+    padding-top: 5px;
     padding-left: 15px;
 }
 
@@ -9,7 +10,7 @@
     flex-direction: row;
     justify-content: space-evenly;
     align-items: flex-start;
-    border-top: 5px solid #00acb0;
+    border-top: 5px solid #45a29e;
     padding-top: 10px;
 }
 

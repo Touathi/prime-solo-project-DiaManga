@@ -31,7 +31,8 @@
 
 
 #detailbody {
-    display: flex
+    display: flex;
+    
 }
 
 #chapters {
@@ -41,6 +42,7 @@
 .detailbox {
     display: flex;
     align-items: flex-start;
+    background-color: #0b0c10;
 }
 
 .addBtn {

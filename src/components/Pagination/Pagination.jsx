@@ -12,7 +12,7 @@ const Pagination = ({ mangasPerPage, totalPosts, paginate}) => {
    
         <div className='pagination'>
             {pageNumbers.map(number => (
-                <div key={number} className='page-item'>
+                <div key={number} className='page-item pagebtn'>
                     <button
                     
                         className='page-link' 
