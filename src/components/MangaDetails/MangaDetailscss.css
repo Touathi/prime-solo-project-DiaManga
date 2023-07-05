@@ -14,7 +14,7 @@
 }
 
 #ratingbox {
-    padding: 20px;
+    padding: 10px;
 }
 
 #rating {
@@ -22,7 +22,7 @@
 }
 
 #descriptionbox {
-    padding: 20px;
+    padding: 10px;
 }
 
 #description {
@@ -49,4 +49,9 @@
 
 #chapterbox {
     margin-left: 20px;
+}
+
+.NoPic {
+    width: 100%;
+    text-align: center;
 }

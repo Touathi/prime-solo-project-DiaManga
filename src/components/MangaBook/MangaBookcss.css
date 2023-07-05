@@ -14,3 +14,16 @@
 .mangaBook {
     padding: 10px;
 }
+
+.imgBtn {
+    margin:0px;
+    padding:0px;
+    white-space:nowrap;
+    width:auto;
+    overflow:visible;
+}
+
+.center {
+    display: flex;
+    align-content: center;
+}

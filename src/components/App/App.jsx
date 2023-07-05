@@ -25,6 +25,7 @@ import InChapter from '../InChapter/InChaper';
 
 
 
+
 import './App.css';
 
 
@@ -155,8 +156,6 @@ function App() {
             
             <InChapter />
           </Route>
-          
-
         
           {/* If none of the other routes matched, we will show a 404.*/}
          <Route>

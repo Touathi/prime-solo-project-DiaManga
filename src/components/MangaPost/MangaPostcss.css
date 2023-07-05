@@ -1,0 +1,4 @@
+.mapContainer {
+    display: flex;
+    flex-wrap: wrap;
+}

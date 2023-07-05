@@ -38,7 +38,7 @@ function* getTrendManga() {
   function* searchManga (action) {
     try {
       const searchMangaRes = yield axios.get(`api/getmanga/search/${action.payload}`)
-      yield put ( {type:'SET_SEARCH_MANGA', payload: searchMangaRes.data.data})
+      yield put ( {type:'SET_SEARCH_MANGA', payload: searchMangaRes.data})
     }
     catch( err ) {
       console.log(`Error in searching manga`, err);

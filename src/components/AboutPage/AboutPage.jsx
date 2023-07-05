@@ -14,7 +14,7 @@ function AboutPage() {
         <br></br>
 
         <p>
-          Manga Diamond is an app designed for manga readers that has trouble keeping track of what mangas they are reading.
+          DiaManga is an app designed for manga readers that has trouble keeping track of what mangas they are reading.
           The user is provided with tons of mangas to choose, current popular mangas or mangas
           that just recently had a new chapter release. Users will also be able to search manga by title name.
           This app also provides users with a personal library that they can add mangas that they are interested in reading or 

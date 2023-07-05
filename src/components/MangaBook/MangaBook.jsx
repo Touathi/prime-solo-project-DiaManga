@@ -19,24 +19,37 @@ function MangaBook({manga}) {
     const handleClick = (manga) => {
         console.log(manga);
         dispatch( {type: 'SET_MANGA_BOOK', payload: manga} )
+        history.push(`/mangadetails/${manga.id}/${manga.attributes.canonicalTitle}`)
         window.scrollTo(0,0)
     }
 
-
-    
+    console.log(manga.attributes.titles.en);
     return (
         <>
             <div className='mangaBook'>
-                <Link to={`/mangadetails/${manga.id}/${manga.attributes.canonicalTitle}`}>
-                    <img className='MangaPoster'
-                        key={manga.id}  
-                        src={manga.attributes.posterImage.original}
-                        alt='mangaPic'
-                        onClick={() => handleClick(manga)}
-                    />
-                </Link>
+                
+                {manga.attributes.posterImage ? (
+                    <button className='imgBtn'>
+                        <img className='MangaPoster'
+                            key={manga.id}  
+                            src={manga.attributes.posterImage.original}
+                            alt='mangaPic'
+                            onClick={() => handleClick(manga)}
+                         />
+                    </button>
+                    
+                ) : (
+                    <button className='imgBtn' onClick={() => handleClick(manga)}> 
+                        <p>No picture Provided</p>
+                        
+                    </button>  
+                )}
                 <div className='Title'>
-                    {manga.attributes.canonicalTitle}
+                {manga.attributes.titles.en ? (
+                    <p>{manga.attributes.titles.en}</p>
+                ) : (
+                    <p>{manga.attributes.canonicalTitle}</p>
+                )}
                 </div>
             </div>
         </>

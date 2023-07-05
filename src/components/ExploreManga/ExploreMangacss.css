@@ -3,7 +3,7 @@
     padding-left: 15px;
 }
 
-.exploreMangaContainer {
+.mapContainer {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -11,4 +11,9 @@
     align-items: flex-start;
     border-top: 5px solid #00acb0;
     padding-top: 10px;
+}
+
+.centerThis {
+    display: flex;
+    justify-content: center;
 }

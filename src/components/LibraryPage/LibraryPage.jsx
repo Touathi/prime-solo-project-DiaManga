@@ -44,7 +44,7 @@ const handleDelete= (manga) => {
     <>
       <div className="Library">
         <div>
-          <h3>My Library</h3>
+          <h3 className='mt-2'>My Library</h3>
           <div className='mapLibContainer'>
             {mangaLibrary.map((manga, i) => (
 

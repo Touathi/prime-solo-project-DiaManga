@@ -54,8 +54,14 @@ function MangaDetails() {
                     <p>{mangaDetails.attributes.canonicalTitle}</p>
                 </div> 
 
-                <div className='detailbox'>           
-                    <img src={mangaDetails.attributes.posterImage.original} className='DetailPoster'/>   
+                <div className='detailbox'>
+                    {mangaDetails.attributes.posterImage ? (
+                        <img src={mangaDetails.attributes.posterImage.original} className='DetailPoster'/>
+                    ) : (
+                        <p className='NoPic'>NO picture Provided</p>
+                    )}
+
+                       
                     <div>
                         <div className='addBtn'>
                             {!selected ? (
@@ -79,7 +85,14 @@ function MangaDetails() {
 
                         <div id='descriptionbox'>
                             <p id='description'>Description:</p>
-                            <p className='description'>  {mangaDetails.attributes.synopsis}</p> 
+                            {mangaDetails.attributes.synopsis ? (
+                                <p className='description'>  
+                                    {mangaDetails.attributes.synopsis}
+                                </p> 
+                            ) : (
+                                <p>No Discription yet</p>
+                            )}
+                            
                         </div>
                     </div>
                 </div>

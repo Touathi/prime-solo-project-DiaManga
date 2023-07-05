@@ -12,7 +12,7 @@ function SearchForm() {
         event.preventDefault();
 
         history.push(`/search/${input}`)
-
+        
         dispatch({
             type:'SEARCH_MANGA',
             payload: input
