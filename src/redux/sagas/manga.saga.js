@@ -37,7 +37,7 @@ function* getTrendManga() {
 // SEARCH MANGA FROM API
   function* searchManga (action) {
     try {
-      const searchMangaRes = yield axios.get(`api/getmanga/search/${action.payload}`)
+      const searchMangaRes = yield axios.get(`api/getmanga/search?title=${action.payload}`)
       yield put ( {type:'SET_SEARCH_MANGA', payload: searchMangaRes.data})
     }
     catch( err ) {

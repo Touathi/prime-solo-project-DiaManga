@@ -11,11 +11,6 @@ router.delete('/:id', (req, res) => {
         WHERE "id" = $1;
     `;
     const IDtoDelete = req.params.id
-    const queryText1 = `
-    DELETE FROM "manga_book"
-    WHERE "id" = $1;
-`;
-    const MangaIdToDel = req.params.mangaid
     pool.query(queryText, [IDtoDelete])
         .then(result => {
             res.sendStatus(200)

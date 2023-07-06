@@ -15,7 +15,7 @@ const Pagination = ({ mangasPerPage, totalPosts, paginate}) => {
                 <div key={number} className='page-item pagebtn'>
                     <button
                     
-                        className='page-link' 
+                        className='page-link numcolor' 
                         onClick={() => paginate(number)} 
       
                         >

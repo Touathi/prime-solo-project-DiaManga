@@ -28,7 +28,6 @@ function SearchForm() {
                     value={input}
                     onChange={(e) => (setInput(e.target.value))}
                     required
-                    size={30}
                 />
                 <button type='submit'>Search</button>
             </form>

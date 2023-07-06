@@ -37,9 +37,9 @@ router.post('/library', (req, res) => {
         INSERT INTO "manga_library" ("user_id", "manga_book_id")
         VALUES ($1, $2);
     `
-    const userID = req.user.id
-    const manga_id = req.body.manga_id
-    pool.query(queryText, [userID, manga_id])
+
+    const value = [req.user.id, req.body.manga_id]
+    pool.query(queryText, value)
         .then(result => {
             res.sendStatus(200);
         })

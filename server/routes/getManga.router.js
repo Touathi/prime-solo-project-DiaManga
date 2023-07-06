@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
     try {
         console.log('getting updated manga in loop');
         let mangas = [];
-        let results = await axios.get('https://kitsu.io/api/edge/manga?page%5Blimit%5D=10&page%5Boffset%5D=0&sort=-updatedAt,ageRating&type=manga')
+        let results = await axios.get('https://kitsu.io/api/edge/manga?type=manga&sort=updatedAt&sort=ageRating')
         let maxTries = 25
         let numberOfRuns = 0
         // add to mangas
@@ -44,11 +44,11 @@ router.get('/trend', ( req, res) => {
 });
 
 
-router.get('/search/:title', async (req, res) => {
+router.get('/search', async (req, res) => {
     try {
         console.log(`getting search Mangas`);
-        console.log(req.params.title);
-        const query = req.params.title
+        console.log('Search for', req.query.title);
+        const query = req.query.title
         let searchMangas = [];
         let results = await axios.get(`https://kitsu.io/api/edge/manga?filter%5Btext%5D=${query}&page%5Blimit%5D=20&page%5Boffset%5D=0`)
         let maxTries = 10
