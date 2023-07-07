@@ -17,11 +17,12 @@ import AboutPage from '../AboutPage/AboutPage';
 import LibraryPage from '../LibraryPage/LibraryPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import HomePage from '../HomeManga/HomeManga';
+import HomePage from '../HomeMangaUserLoggedIn/HomeMangaUserLoggedIn';
 import SearchManga from '../SearchManga/SearchManga'
 import MangaDetails from '../MangaDetails/MangaDetails';
 import LMangaDetail from '../LMangaDetail/LMangaDetail';
 import InChapter from '../InChapter/InChaper';
+import HomePageUserNotLoggedIn from '../HomePageUserNotLoggedIn/HomePageUserNotLoggedIn';
 
 
 
@@ -44,15 +45,15 @@ function App() {
         <Nav />
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/login */}
-          <Redirect exact from="/" to="/login" />
+          <Redirect exact from="/" to="/nouserhome" />
 
           {/* Visiting localhost:3000/about will show the about page. */}
           <Route
             // shows AboutPage at all times (logged in or not)
             exact
-            path="/about"
+            path="/nouserhome"
           >
-            <AboutPage />
+            <HomePageUserNotLoggedIn />
           </Route>
 
           {/* For protected routes, the view could show one of several things on the same route.

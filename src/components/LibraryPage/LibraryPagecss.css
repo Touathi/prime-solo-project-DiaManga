@@ -32,3 +32,10 @@
     margin-left: 10px;
     margin-right: 10px;
 }
+
+
+.checkmark {
+    position: absolute;
+    top: 165px;
+    font-size: x-large;
+}

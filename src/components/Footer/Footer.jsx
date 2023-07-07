@@ -12,8 +12,8 @@ function Footer() {
 
   const history = useHistory();
 
-  return <footer>
-    &copy; Prime Digital Academy
+  return <footer className='pt-5'>
+    &copy; DiaManga
 
     <br></br>
 

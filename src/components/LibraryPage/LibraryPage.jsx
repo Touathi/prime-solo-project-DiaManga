@@ -30,6 +30,8 @@ const handlePut = (manga) => {
   console.log(manga.done_reading);
   dispatch( {type: 'UPDATE_MANGA_BOOK', payload: manga.id})
   dispatch( {type: 'GET_MANGA_LIBRARY'})
+  $(this).toggleClass('my-checkfield-selected');
+
 }
 
 const handleDelete= (manga) => {
@@ -51,22 +53,27 @@ const handleDelete= (manga) => {
               // if the manga's done_reading === true then render this
               manga.done_reading === true ? 
               (
+                      <div>
+                      
                       <div key={i}  className='mangaBook'>
-
+                        
                         <div onClick={() => handleClick(manga)}>
                           <Link to={`/library/mangadetails/${manga.manga_id}/${manga.title}`}>
                           <img src={manga.img} alt="manga_pic" className='Libposter' />
                           </Link>
+                          <div className='checkmark'>
+                            ✅
+                          </div>
 
                           <div className='Libtitle'>
                             {manga.title}
                           </div>
                           <div >
                           {/* DELETE FROM DATABASE */}
-                          <button onClick={() => handleDelete(manga)}>Remove</button>
+                          <button onClick={() => handleDelete(manga)}>Remove❌</button>
                         </div>
                         </div>
-
+                      </div>
                       </div>
                 
               ) : (

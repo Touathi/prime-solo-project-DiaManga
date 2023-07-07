@@ -10,8 +10,8 @@ router.get('/', async (req, res) => {
     try {
         console.log('getting updated manga in loop');
         let mangas = [];
-        let results = await axios.get('https://kitsu.io/api/edge/manga?type=manga&sort=updatedAt&sort=ageRating')
-        let maxTries = 25
+        let results = await axios.get('https://kitsu.io/api/edge/manga?type=manga&sort=updatedAt&sort=ageRating&page%5Blimit%5D=20&page%5Boffset%5D=0')
+        let maxTries = 10
         let numberOfRuns = 0
         // add to mangas
         mangas.push(...results.data.data)

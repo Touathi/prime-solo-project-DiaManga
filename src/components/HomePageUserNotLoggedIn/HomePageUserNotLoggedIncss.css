@@ -1,0 +1,20 @@
+
+#homeBody {
+    display: flex;
+}
+
+#trendManga {
+    border-left: 2px solid #ede7b1;
+}
+
+.column {
+    float: left
+}
+
+.Left {
+    width: 65%;
+}
+
+.Right {
+    width: 35%;
+}

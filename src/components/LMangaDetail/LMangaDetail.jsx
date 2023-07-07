@@ -45,7 +45,7 @@ function LMangaDetail() {
                         </div>
                     </div>
                     <div id='chapterbox'>
-                        <h3 >Chapters</h3>
+                        <h3 className='border-bottom mt-3'>Chapters</h3>
                         <MangaCh/>
                     </div>          
             </div>
