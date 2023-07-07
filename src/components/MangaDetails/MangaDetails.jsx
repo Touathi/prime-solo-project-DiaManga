@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import MangaCh from '../MangaCh/MangaCh';
-import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 
 import './MangaDetailscss.css'
 
@@ -11,6 +10,7 @@ function MangaDetails() {
     const dispatch = useDispatch();
 
     const [ selected, setSelected ] = useState(false)
+    const [ loading, setLoading ] = useState(false)
     
     const mangaDetails = useSelector(store => store.setMangaBook)
     console.log(mangaDetails);
@@ -18,9 +18,10 @@ function MangaDetails() {
 
     useEffect( () => {
         dispatch( {type: 'SET_MANGA_BOOK', payload: mangaDetails} )
+        setLoading(true)
         console.log(mangaDetails.id);
         dispatch( {type: 'GET_MANGA_CH', payload: mangaDetails.id})
-    },[dispatch] )
+    },[] )
 
     console.log('The selected manga is', mangaDetails.attributes.canonicalTitle);
 
@@ -98,9 +99,8 @@ function MangaDetails() {
                 </div>
 
                 <div id='chapterbox'>
-                    <h3>Chapters</h3>
-                    <MangaCh 
-                        mangaDetails={mangaDetails}/>
+                    <h3 className='border-bottom mt-3'>Chapters</h3>
+                    <MangaCh />
                 </div>
             </div>
         </>

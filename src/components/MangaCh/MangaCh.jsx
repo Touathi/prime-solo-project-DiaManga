@@ -1,30 +1,39 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 import './MangaChcss.css'
 
-function MangaCh({mangaDetails}) {
+function MangaCh({loading}) {
 
-    const history = useHistory()
-    console.log(mangaDetails);
-    const handleClick = (chapter) => {
-        history.push(`/workingprogress/chapter`)
-    }
-    
     const mangaBookCh = useSelector( store => store.setMangaChapters)
     console.log(mangaBookCh);
 
+    console.log(mangaBookCh);
+    const history = useHistory()
+
+
+    const handleClick = () => {
+        history.push(`/workingprogress/chapter`)
+    }
+
     return (
-        <> 
-            <div className="chapters">
+        <>
+            <div className='scroll-div'>
                 {mangaBookCh.map((chapter, i) => (
-                
-                    <div key={i}>
-                        <button className="chapterbtn" onClick={() => handleClick(chapter) }>Chapter {chapter.attributes.number}</button>
+                    <div key={i} >
+                        <button className="chapterbtn mt-2 border-bottom" onClick={handleClick}>
+                            <div className='inBtn'>
+                                <div className='chapter a ms-5 text-'>
+                                    Chapter 
+                                </div>
+                                <div className='num b '>
+                                    {chapter.attributes.number}
+                                </div>
+                            </div>
+                        </button>
                     </div>
-                    
                 ))}
-            </div>    
+            </div> 
         </>
     )
 }

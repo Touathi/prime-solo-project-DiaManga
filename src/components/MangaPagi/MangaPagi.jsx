@@ -2,14 +2,9 @@ import React from 'react'
 import MangaBook from '../MangaBook/MangaBook';
 
 
-const MangaPost = ({ mangas, loading }) => {
-    if (loading) {
-        return <h2>Loading...</h2>
-    }
+const MangaPagi = ({ mangas, loading }) => {
 
-    console.log(mangas);
-
-  return (
+  return  (
     <>
       <div className='mapContainer'>
         {mangas.map(post => (
@@ -18,9 +13,9 @@ const MangaPost = ({ mangas, loading }) => {
                 key={post.id} 
             />
         ))}
-       </div> 
+      </div> 
     </>
   )
 }
 
-export default MangaPost
+export default MangaPagi

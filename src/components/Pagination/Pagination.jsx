@@ -1,5 +1,6 @@
 import React from 'react'
 
+import './Paginationcss.css'
 
 const Pagination = ({ mangasPerPage, totalPosts, paginate}) => {
 
@@ -10,7 +11,7 @@ const Pagination = ({ mangasPerPage, totalPosts, paginate}) => {
 
   return (
    
-        <div className='pagination'>
+        <div className='pagi'>
             {pageNumbers.map(number => (
                 <div key={number} className='page-item pagebtn'>
                     <button

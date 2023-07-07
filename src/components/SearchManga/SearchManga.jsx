@@ -1,7 +1,7 @@
 import { useDispatch, useSelector} from 'react-redux';
 import MangaBook from '../MangaBook/MangaBook';
 import { useState, useEffect} from 'react'
-import MangaPost from '../MangaPost/MangaPost';
+import MangaPagi from '../MangaPagi/MangaPagi';
 import Pagination from '../Pagination/Pagination';
 
 import './SearchMangacss.css'
@@ -29,7 +29,7 @@ function SearchManga () {
             -Search List-
             </div>
             <div className='searchContainer'>
-            <MangaPost mangas={currentMangas} loading={loading}/>
+            <MangaPagi mangas={currentMangas} loading={loading}/>
 
                 
             </div> 

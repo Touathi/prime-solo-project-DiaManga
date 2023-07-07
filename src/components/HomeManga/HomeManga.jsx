@@ -16,8 +16,7 @@ function HomePage() {
     }, [dispatch]) 
 
 
-
-    return (
+    return  (
         <>
             <div id='homeBody'>
                 <div id='exploreManga' className='column Left'>

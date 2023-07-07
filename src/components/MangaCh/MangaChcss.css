@@ -1,4 +1,11 @@
 
+.ChContainer {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+
+}
+
 .chapterbtn {
     background: none;
 	color: inherit;
@@ -8,4 +15,32 @@
 	cursor: pointer;
 	outline: inherit;
     margin-bottom: 20px;
+	transition-duration: .3s;
 }
+
+.chapterbtn:hover {
+	background-color: #5a7d7c;
+}
+
+.inBtn {
+	display: flex;
+}
+
+.a {
+	font-size: 14pt;
+}
+
+
+.b {
+	padding-left: 750px;
+	padding-right: 60px
+}
+
+.scroll-div{
+    text-align: center;
+    background-color: #232c33;
+    width: 100%;
+    height: 520px;
+    overflow-y: auto;
+    overflow-x: hidden;
+   }
