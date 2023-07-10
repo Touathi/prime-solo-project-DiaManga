@@ -1,5 +1,5 @@
 const express = require('express');
-const  axios = require('axios')
+const axios = require('axios')
 const router = express.Router();
 
 
@@ -19,10 +19,10 @@ router.get('/', async (req, res) => {
             numberOfRuns += 1;
             results = await axios.get(results.data.links.next)
             mangas.push(...results.data.data)
-            console.log('next',results.data.links.next);
+            console.log('next', results.data.links.next);
         }
         res.send(mangas)
-    } catch(error) {
+    } catch (error) {
         console.log('Error in looping thru updated mangas', error);
         res.sendStatus(500)
     }
@@ -30,14 +30,14 @@ router.get('/', async (req, res) => {
 
 
 // GET TRENDING MANGA FROM API
-router.get('/trend', ( req, res) => {
+router.get('/trend', (req, res) => {
     console.log(`getting Trending Mangas`);
     axios.get('https://kitsu.io/api/edge/trending/manga/?limit=20')
-        .then( response => {
-            console.log('trend route',response.data);
+        .then(response => {
+            console.log('trend route', response.data);
             res.send(response.data)
         })
-        .catch( error => {
+        .catch(error => {
             console.log('Error in getting mangas', error);
             res.sendStatus(500)
         })
@@ -53,7 +53,7 @@ router.get('/search', async (req, res) => {
         let results = await axios.get(`https://kitsu.io/api/edge/manga?filter%5Btext%5D=${query}&page%5Blimit%5D=20&page%5Boffset%5D=0`)
         let maxTries = 10
         let numberOfRuns = 0
-        
+
         // add to searchMangas
         searchMangas.push(...results.data.data)
         // console.log('links',results.data.links.next);
@@ -61,17 +61,17 @@ router.get('/search', async (req, res) => {
             numberOfRuns += 1;
             results = await axios.get(results.data.links.next)
             searchMangas.push(...results.data.data)
-            console.log('next',results.data.links.next);
+            console.log('next', results.data.links.next);
         }
         res.send(searchMangas)
-    } catch(error) {
+    } catch (error) {
         console.log('Error in looping thru updated mangas', error);
         res.sendStatus(500)
     }
 })
 
 // GET THE CHAPTERS OF THE SELECTED MANGA FROM API
-router.get('/:id/mangach', async ( req, res ) => {
+router.get('/:id/mangach', async (req, res) => {
     try {
         console.log('In Getting manga chapters');
         console.log(req.params.id);

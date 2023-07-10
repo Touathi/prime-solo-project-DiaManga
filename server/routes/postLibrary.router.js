@@ -11,10 +11,10 @@ router.post('/', (req, res) => {
         )
     `
     const value = [
-        req.body.manga_id, 
-        req.body.title, 
-        req.body.img, 
-        req.body.avg_rate, 
+        req.body.manga_id,
+        req.body.title,
+        req.body.img,
+        req.body.avg_rate,
         req.body.description,
         req.body.start_date,
         req.body.update_at,
