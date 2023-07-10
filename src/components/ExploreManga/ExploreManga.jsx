@@ -1,5 +1,5 @@
-import { useState, useEffect} from 'react';
-import { useDispatch, useSelector} from 'react-redux';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import MangaPagi from '../MangaPagi/MangaPagi';
 import Pagination from '../Pagination/Pagination';
 
@@ -9,7 +9,7 @@ import './ExploreMangacss.css'
 function ExploreManga() {
 
 
-    const setMangas = useSelector( store => store.SetMangaHome.setManga)
+    const setMangas = useSelector(store => store.SetMangaHome.setManga)
     const [loading, setLoading] = useState(false)
     const [currentPage, setCurrentPage] = useState(1);
     const [mangasPerPage] = useState(30)
@@ -27,15 +27,15 @@ function ExploreManga() {
             <div id='ExploreManga'>
                 <h3 id='ExploreHeader'>Explore manga</h3>
 
-                <MangaPagi mangas={currentMangas} loading={loading}/>
+                <MangaPagi mangas={currentMangas} loading={loading} />
 
                 <div className='centerThis'>
-                    <Pagination 
-                        mangasPerPage= {mangasPerPage} 
-                        totalPosts = {setMangas.length}
-                        paginate={paginate}                 
+                    <Pagination
+                        mangasPerPage={mangasPerPage}
+                        totalPosts={setMangas.length}
+                        paginate={paginate}
                     />
-                </div>  
+                </div>
             </div>
         </>
     )

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
-import { useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import './LibraryPagecss.css'
@@ -15,28 +15,28 @@ function InfoPage() {
   const mangaLibrary = useSelector(store => store.setMangaLibrarys.setMangaLibrary)
   console.log(mangaLibrary);
 
-  useEffect( () => {
-    dispatch( {type: 'GET_MANGA_LIBRARY'} )
-}, [dispatch]) 
+  useEffect(() => {
+    dispatch({ type: 'GET_MANGA_LIBRARY' })
+  }, [dispatch])
 
-const handleClick = (manga) => {
-  console.log( 'open manga', manga.title);
-  dispatch( {type: 'SET_MANGA_BOOK', payload: manga} )
-  dispatch( {type: 'GET_MANGA_LIBRARY'})
-}
+  const handleClick = (manga) => {
+    console.log('open manga', manga.title);
+    dispatch({ type: 'SET_MANGA_BOOK', payload: manga })
+    dispatch({ type: 'GET_MANGA_LIBRARY' })
+  }
 
-const handlePut = (manga) => {
-  console.log( 'Updating manga with manga_id', manga.id);
-  console.log(manga.done_reading);
-  dispatch( {type: 'UPDATE_MANGA_BOOK', payload: manga.id})
-  dispatch( {type: 'GET_MANGA_LIBRARY'})
-}
+  const handlePut = (manga) => {
+    console.log('Updating manga with manga_id', manga.id);
+    console.log(manga.done_reading);
+    dispatch({ type: 'UPDATE_MANGA_BOOK', payload: manga.id })
+    dispatch({ type: 'GET_MANGA_LIBRARY' })
+  }
 
-const handleDelete= (manga) => {
-  console.log('Deleting manga with id', manga.id, manga.manga_id);
-  dispatch( {type: 'DELETE_MANGA_BOOK', payload: {id: manga.id, mangaid: manga.manga_id}} )
-  dispatch( {type: 'GET_MANGA_LIBRARY'})
-}
+  const handleDelete = (manga) => {
+    console.log('Deleting manga with id', manga.id, manga.manga_id);
+    dispatch({ type: 'DELETE_MANGA_BOOK', payload: { id: manga.id, mangaid: manga.manga_id } })
+    dispatch({ type: 'GET_MANGA_LIBRARY' })
+  }
 
 
 
@@ -49,56 +49,56 @@ const handleDelete= (manga) => {
             {mangaLibrary.map((manga, i) => (
 
               // if the manga's done_reading === true then render this
-              manga.done_reading === true ? 
-              (
-                      <div>
-                      
-                      <div key={i}  className='mangaBook'>
-                        
-                        <div onClick={() => handleClick(manga)}>
-                          <Link to={`/library/mangadetails/${manga.manga_id}/${manga.title}`}>
-                          <img src={manga.img} alt="manga_pic" className='Libposter' />
-                          </Link>
-                          <div className='checkmark'>
-                            ✅
-                          </div>
+              manga.done_reading === true ?
+                (
+                  <div>
 
-                          <div className='Libtitle'>
-                            {manga.title}
-                          </div>
-                          <div >
+                    <div key={i} className='mangaBook'>
+
+                      <div onClick={() => handleClick(manga)}>
+                        <Link to={`/library/mangadetails/${manga.manga_id}/${manga.title}`}>
+                          <img src={manga.img} alt="manga_pic" className='Libposter' />
+                        </Link>
+                        <div className='checkmark'>
+                          ✅
+                        </div>
+
+                        <div className='Libtitle'>
+                          {manga.title}
+                        </div>
+                        <div >
                           {/* DELETE FROM DATABASE */}
                           <button
-                            className='remove' 
+                            className='remove'
                             onClick={() => handleDelete(manga)}>
-                              ❌
+                            ❌
                           </button>
                         </div>
-                        </div>
                       </div>
-                      </div>
-                
-              ) : (
-                  <div className='LibContainer'  key={i} >
+                    </div>
+                  </div>
+
+                ) : (
+                  <div className='LibContainer' key={i} >
                     {/* // if the manga's done_reading === !true then render this */}
                     <div className='mangaBook'>
                       <div>
 
                         <div>
                           {/* UPDATE DONE_READING IN DATABASE */}
-                          <button 
-                            onClick={() => handlePut(manga)} 
+                          <button
+                            onClick={() => handlePut(manga)}
                             className='finished'>
-                              Finished reading
+                            Finished reading
                           </button>
                         </div>
-                      
+
                       </div>
-                            
+
                       <div onClick={() => handleClick(manga)}>
 
                         <Link to={`/library/mangadetails/${manga.manga_id}/${manga.title}`}>
-                        <img src={manga.img} alt="manga_pic" className='Libposter' />
+                          <img src={manga.img} alt="manga_pic" className='Libposter' />
                         </Link>
 
                         <div className='Libtitle'>
@@ -109,15 +109,15 @@ const handleDelete= (manga) => {
                           <button
                             onClick={() => handleDelete(manga)}
                             className='remove'
-                            >
-                              ❌
+                          >
+                            ❌
                           </button>
                         </div>
 
-                      </div> 
+                      </div>
                     </div>
                   </div>
-                  )
+                )
             ))}
           </div>
         </div>

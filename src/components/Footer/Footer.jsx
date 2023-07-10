@@ -18,18 +18,18 @@ function Footer() {
     <br></br>
 
     <button
-        type="button"
-        className="btn btn_asLink"
-        onClick={() => {
-          history.push('/about');
-        }}
+      type="button"
+      className="btn btn_asLink"
+      onClick={() => {
+        history.push('/about');
+      }}
     >
       About App
     </button>
     <br></br>
 
   </footer>;
-  
+
 }
 
 export default Footer;

@@ -6,28 +6,29 @@ import './MangaDetailscss.css'
 
 function MangaDetails() {
 
-    
+
     const dispatch = useDispatch();
 
-    const [ selected, setSelected ] = useState(false)
-    const [ loading, setLoading ] = useState(false)
-    
+    const [selected, setSelected] = useState(false)
+    const [loading, setLoading] = useState(false)
+
     const mangaDetails = useSelector(store => store.setMangaBook)
     console.log(mangaDetails);
 
 
-    useEffect( () => {
-        dispatch( {type: 'SET_MANGA_BOOK', payload: mangaDetails} )
+    useEffect(() => {
+        dispatch({ type: 'SET_MANGA_BOOK', payload: mangaDetails })
         setLoading(true)
         console.log(mangaDetails.id);
-        dispatch( {type: 'GET_MANGA_CH', payload: mangaDetails.id})
-    },[] )
+        dispatch({ type: 'GET_MANGA_CH', payload: mangaDetails.id })
+    }, [])
 
     console.log('The selected manga is', mangaDetails.attributes.canonicalTitle);
 
     const handleClick = () => {
         console.log('Add to library', mangaDetails.attributes.canonicalTitle);
-        dispatch( {type: 'ADD_TO_MANGA_BOOK', 
+        dispatch({
+            type: 'ADD_TO_MANGA_BOOK',
             payload: {
                 manga_id: mangaDetails.id,
                 title: mangaDetails.attributes.canonicalTitle,
@@ -37,11 +38,11 @@ function MangaDetails() {
                 start_date: mangaDetails.attributes.startDate,
                 updated_at: mangaDetails.attributes.updatedAt,
                 status: mangaDetails.attributes.status
-            } 
+            }
         })
         console.log('Add to library');
-        console.log('manga_id is', mangaDetails.id );
-        dispatch( {type: 'ADD_TO_MANGA_LIBRARY', payload: {manga_id: mangaDetails.id} })
+        console.log('manga_id is', mangaDetails.id);
+        dispatch({ type: 'ADD_TO_MANGA_LIBRARY', payload: { manga_id: mangaDetails.id } })
         setSelected(!selected)
     }
 
@@ -49,26 +50,26 @@ function MangaDetails() {
     return (
         <>
             <div id='detailBody'>
-                
+
 
                 <div id='title'>
                     <p>{mangaDetails.attributes.canonicalTitle}</p>
-                </div> 
+                </div>
 
                 <div className='detailbox'>
                     {mangaDetails.attributes.posterImage ? (
-                        <img src={mangaDetails.attributes.posterImage.original} className='DetailPoster'/>
+                        <img src={mangaDetails.attributes.posterImage.original} className='DetailPoster' />
                     ) : (
                         <p className='NoPic'>NO picture Provided</p>
                     )}
 
-                       
+
                     <div>
                         <div className='addBtn me-5 pe-5'>
                             {!selected ? (
                                 <div>
                                     <button onClick={handleClick}>Add to favorite</button>
-                                </div> 
+                                </div>
                             ) : (
                                 <p>Added to favorite</p>
                             )}
@@ -79,21 +80,21 @@ function MangaDetails() {
                             {mangaDetails.attributes.averageRating ? (
                                 <p>
                                     {mangaDetails.attributes.averageRating}/100
-                                </p> ) : (
+                                </p>) : (
                                 <p>No ratings yet</p>
                             )}
-                        </div>  
+                        </div>
 
                         <div id='descriptionbox'>
                             <p id='description'>Description:</p>
                             {mangaDetails.attributes.synopsis ? (
-                                <p className='description'>  
+                                <p className='description'>
                                     {mangaDetails.attributes.synopsis}
-                                </p> 
+                                </p>
                             ) : (
                                 <p>No Discription yet</p>
                             )}
-                            
+
                         </div>
                     </div>
                 </div>

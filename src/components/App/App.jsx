@@ -22,7 +22,6 @@ import SearchManga from '../SearchManga/SearchManga'
 import MangaDetails from '../MangaDetails/MangaDetails';
 import LMangaDetail from '../LMangaDetail/LMangaDetail';
 import InChapter from '../InChapter/InChaper';
-import HomePageUserNotLoggedIn from '../HomePageUserNotLoggedIn/HomePageUserNotLoggedIn';
 
 
 
@@ -45,15 +44,15 @@ function App() {
         <Nav />
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/login */}
-          <Redirect exact from="/" to="/nouserhome" />
+          <Redirect exact from="/" to="/home" />
 
           {/* Visiting localhost:3000/about will show the about page. */}
           <Route
             // shows AboutPage at all times (logged in or not)
             exact
-            path="/nouserhome"
+            path="/login"
           >
-            <HomePageUserNotLoggedIn />
+            <HomePage />
           </Route>
 
           {/* For protected routes, the view could show one of several things on the same route.
@@ -118,14 +117,14 @@ function App() {
               <SearchManga />
             }
           </Route>
-          
+
 
           {/* MANGA DETAIL PAGE */}
           <Route
             exact
             path="/mangadetails/:id/:title"
           >
-          
+
             {!user.id ?
               // If the user is already logged in, 
               // redirect them to the /user page
@@ -136,11 +135,11 @@ function App() {
             }
           </Route>
 
-           {/* MANGA DETAIL PAGE */}
-           <Route
+          {/* MANGA DETAIL PAGE */}
+          <Route
             exact
             path='/library/mangadetails/:id/:title'
-            >
+          >
             {!user.id ?
               // If the user is already logged in, 
               // redirect them to the /user page
@@ -151,24 +150,24 @@ function App() {
             }
           </Route>
 
-          <Route 
+          <Route
             exact
             path='/workingprogress/chapter'>
-            
+
             <InChapter />
           </Route>
 
-          <Route 
+          <Route
             exact
             path='/about'>
-            
+
             <AboutPage />
           </Route>
-        
+
           {/* If none of the other routes matched, we will show a 404.*/}
-         <Route>
+          <Route>
             <h1>404</h1>
-          </Route>  
+          </Route>
         </Switch>
         <Footer />
       </div>

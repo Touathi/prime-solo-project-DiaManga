@@ -9,7 +9,7 @@ import SearchForm from '../SearchForm/SearchForm';
 function Nav() {
   const user = useSelector((store) => store.user);
 
-  
+
 
   return (
     <div className="nav">
@@ -18,10 +18,10 @@ function Nav() {
       </Link>
       <div>
         <div>
-            {/* If no user is logged in, show these links */}
-            {!user.id && (
-              // If there's no user, show login/registration links
-              <>
+          {/* If no user is logged in, show these links */}
+          {!user.id && (
+            // If there's no user, show login/registration links
+            <>
               {/* <Link className="navLink" to="/registration">
                 Create a Library
               </Link> */}
@@ -29,34 +29,34 @@ function Nav() {
               <Link className="navLink" to="/login">
                 Login / Register
               </Link>
-              </>
-            )}
+            </>
+          )}
 
-            {/* If a user is logged in, show these links */}
-              {user.id && (
-                <>
-                  <div className='ms-5 me-3 ps-5'>
-                  <Link className="navLink" to="/home">
-                    Home
-                  </Link>
+          {/* If a user is logged in, show these links */}
+          {user.id && (
+            <>
+              <div className='ms-5 me-3 ps-5'>
+                <Link className="navLink" to="/home">
+                  Home
+                </Link>
 
-                  <Link className="navLink" to="/library">
-                    Library
-                  </Link>
+                <Link className="navLink" to="/library">
+                  Library
+                </Link>
 
-                  
-                  <LogOutButton 
-                    className="navLink"
-                    user={user.username} />
-                  </div> 
 
-                  <div className='search ms-5'>
-                    <SearchForm />
-                  </div>
-                </>
-              )}
-          </div>
+                <LogOutButton
+                  className="navLink"
+                  user={user.username} />
+              </div>
+
+              <div className='search ms-5'>
+                <SearchForm />
+              </div>
+            </>
+          )}
         </div>
+      </div>
     </div>
   );
 }

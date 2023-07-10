@@ -1,6 +1,6 @@
-import { useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import MangaBook from '../MangaBook/MangaBook';
-import { useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import MangaPagi from '../MangaPagi/MangaPagi';
 import Pagination from '../Pagination/Pagination';
 
@@ -8,10 +8,10 @@ import './SearchMangacss.css'
 
 
 
-function SearchManga () {
+function SearchManga() {
 
 
-    const searchManga = useSelector( store => store.setSearchManga)
+    const searchManga = useSelector(store => store.setSearchManga)
     console.log(searchManga);
     const [loading] = useState(false)
     const [currentPage, setCurrentPage] = useState(1);
@@ -23,23 +23,23 @@ function SearchManga () {
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
-    
+
     return (
         <>  <div className='mt-5 mb-3 text-center '>
             -Search List-
-            </div>
+        </div>
             <div className='searchContainer'>
-            <MangaPagi mangas={currentMangas} loading={loading}/>
+                <MangaPagi mangas={currentMangas} loading={loading} />
 
-                
-            </div> 
+
+            </div>
             <div className='centerThis'>
-                <Pagination 
-                    mangasPerPage= {mangasPerPage} 
-                    totalPosts = {searchManga.length}
-                    paginate={paginate}                 
+                <Pagination
+                    mangasPerPage={mangasPerPage}
+                    totalPosts={searchManga.length}
+                    paginate={paginate}
                 />
-            </div> 
+            </div>
         </>
     )
 }

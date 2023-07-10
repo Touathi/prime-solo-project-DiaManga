@@ -1,7 +1,7 @@
 import './InChaptercss.css'
 
 function InChapter() {
-    
+
 
     return (
         <>
