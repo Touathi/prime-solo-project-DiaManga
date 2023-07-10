@@ -1,3 +1,22 @@
+![MIT LICENSE](https://img.shields.io/github/license/scottbromander/the_marketplace.svg?style=flat-square)
+![REPO SIZE](https://img.shields.io/github/repo-size/scottbromander/the_marketplace.svg?style=flat-square)
+![TOP_LANGUAGE](https://img.shields.io/github/languages/top/scottbromander/the_marketplace.svg?style=flat-square)
+![FORKS](https://img.shields.io/github/forks/scottbromander/the_marketplace.svg?style=social)
+
+# DiaManga
+
+
+## Description
+
+Duration: 2 Week Sprint
+
+DiaManga is an App that uses the API Kistu to populate the website with mangas and on the home page of my app. The user is given two list of mangas which is to explore randomly generated mangas or to select from a popular list of manga. The user also has a choice to search for a manga if there is a certain manga the user is looking for, this app lets user view and add a selected manga into the user's library. In the user's library, the user is able to mark a manga as finished reading or delete/remove from the user's library. Durring the 2 week sprint, I had some trouble with dealing with the data that was provided to me by the API so I took some time to figure that out, I decided to just focus on the datas that I need in order to make my app working and not worry too much about the othe datas. I also had trouble with designning and formatting the layout of my App, I took some time to find a good color theme and had to use coolers which helps me find and match good color themes together.
+
+To See a fully functional site, please visit: LINK PUT HERE -------
+
+# Prerequisites 
+
+
 
 # Prime Solo Project Starting Repo
 This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
