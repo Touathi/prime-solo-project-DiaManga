@@ -157,6 +157,13 @@ function App() {
             
             <InChapter />
           </Route>
+
+          <Route 
+            exact
+            path='/about'>
+            
+            <AboutPage />
+          </Route>
         
           {/* If none of the other routes matched, we will show a 404.*/}
          <Route>

@@ -14,7 +14,7 @@ function Nav() {
   return (
     <div className="nav">
       <Link to="/home">
-        <h2 className="nav-title">DiaM💎nga</h2>
+        <h2 className="nav-title ms-4">DiaM💎nga</h2>
       </Link>
       <div>
         <div>
@@ -44,6 +44,7 @@ function Nav() {
                     Library
                   </Link>
 
+                  
                   <LogOutButton 
                     className="navLink"
                     user={user.username} />

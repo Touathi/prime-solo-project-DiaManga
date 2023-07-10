@@ -32,7 +32,6 @@
 
 #detailbody {
     display: flex;
-    
 }
 
 #chapters {
@@ -56,4 +55,8 @@
 .NoPic {
     width: 100%;
     text-align: center;
+}
+
+.detailbox {
+    font-size: 16pt;
 }

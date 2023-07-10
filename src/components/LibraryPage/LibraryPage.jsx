@@ -30,8 +30,6 @@ const handlePut = (manga) => {
   console.log(manga.done_reading);
   dispatch( {type: 'UPDATE_MANGA_BOOK', payload: manga.id})
   dispatch( {type: 'GET_MANGA_LIBRARY'})
-  $(this).toggleClass('my-checkfield-selected');
-
 }
 
 const handleDelete= (manga) => {
@@ -47,7 +45,7 @@ const handleDelete= (manga) => {
       <div className="Library">
         <div>
           <h3 className='mt-2'>My Library</h3>
-          <div className='mapLibContainer'>
+          <div className='mapLibContainer  pt-4'>
             {mangaLibrary.map((manga, i) => (
 
               // if the manga's done_reading === true then render this
@@ -70,25 +68,31 @@ const handleDelete= (manga) => {
                           </div>
                           <div >
                           {/* DELETE FROM DATABASE */}
-                          <button onClick={() => handleDelete(manga)}>Remove❌</button>
+                          <button
+                            className='remove' 
+                            onClick={() => handleDelete(manga)}>
+                              ❌
+                          </button>
                         </div>
                         </div>
                       </div>
                       </div>
                 
               ) : (
-                <div className='LibContainer'  key={i} >
+                  <div className='LibContainer'  key={i} >
                     {/* // if the manga's done_reading === !true then render this */}
                     <div className='mangaBook'>
                       <div>
 
-                        <div >
+                        <div>
                           {/* UPDATE DONE_READING IN DATABASE */}
-                          <button onClick={() => handlePut(manga)}>Finished reading</button>
+                          <button 
+                            onClick={() => handlePut(manga)} 
+                            className='finished'>
+                              Finished reading
+                          </button>
                         </div>
-                        
-
-
+                      
                       </div>
                             
                       <div onClick={() => handleClick(manga)}>
@@ -100,14 +104,19 @@ const handleDelete= (manga) => {
                         <div className='Libtitle'>
                           {manga.title}
                         </div>
-                        <div >
+                        <div>
                           {/* DELETE FROM DATABASE */}
-                          <button onClick={() => handleDelete(manga)}>Remove</button>
+                          <button
+                            onClick={() => handleDelete(manga)}
+                            className='remove'
+                            >
+                              ❌
+                          </button>
                         </div>
 
                       </div> 
                     </div>
-                </div>
+                  </div>
                   )
             ))}
           </div>

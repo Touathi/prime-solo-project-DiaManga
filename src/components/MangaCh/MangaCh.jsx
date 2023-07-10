@@ -16,9 +16,14 @@ function MangaCh({loading}) {
         history.push(`/workingprogress/chapter`)
     }
 
+    const handleTop = () => {
+        window.scrollTo(0,500)
+    }
+
     return (
         <>
             <div className='scroll-div'>
+                
                 {mangaBookCh.map((chapter, i) => (
                     <div key={i} >
                         <button className="chapterbtn mt-2 border-bottom" onClick={handleClick}>
@@ -34,6 +39,7 @@ function MangaCh({loading}) {
                     </div>
                 ))}
             </div> 
+            
         </>
     )
 }

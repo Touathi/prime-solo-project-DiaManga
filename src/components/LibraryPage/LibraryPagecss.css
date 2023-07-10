@@ -36,6 +36,22 @@
 
 .checkmark {
     position: absolute;
-    top: 165px;
+    top: 190px;
     font-size: x-large;
+}
+
+.finished {
+    font-size: small;
+    width: 120px;
+    border: none;
+}
+
+.remove {
+    font-size: small;
+    width: 30px;
+    border: 2px solid red;
+    background-color:rgb(82, 5, 5);
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
 }

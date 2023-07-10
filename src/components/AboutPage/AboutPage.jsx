@@ -21,7 +21,24 @@ function AboutPage() {
           currently reading, the app also includes a finish reading category to show users what mangas they
           had finished reading so they dont go back to reading the same manga over again.
         </p>
-      </div>
+        </div>
+
+        <br></br>
+        <p>Technologies used:</p>
+        <ul>
+          <li>React</li>
+          <li>Javascript</li>
+          <li>React</li>
+          <li>Node.js</li>
+          <li>Redux</li>
+          <li>Redux Saga</li>
+          <li>PostgreSQL</li>
+          <li>HTML5</li>
+          <li>CSS3</li>
+          <li>Express.js</li>
+          <li>Kistu API</li>
+        </ul>
+  
     </div>
   );
 }
