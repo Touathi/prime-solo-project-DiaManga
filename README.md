@@ -12,7 +12,8 @@ Duration: 2 Week Sprint
 
 DiaManga is an App that uses the API Kistu to populate the website with mangas and on the home page of my app. The user is given two list of mangas which is to explore randomly generated mangas or to select from a popular list of manga. The user also has a choice to search for a manga if there is a certain manga the user is looking for, this app lets user view and add a selected manga into the user's library. In the user's library, the user is able to mark a manga as finished reading or delete/remove from the user's library. Durring the 2 week sprint, I had some trouble with dealing with the data that was provided to me by the API so I took some time to figure that out, I decided to just focus on the datas that I need in order to make my app working and not worry too much about the othe datas. I also had trouble with designning and formatting the layout of my App, I took some time to find a good color theme and had to use coolers which helps me find and match good color themes together.
 
-To See a fully functional site, please visit: LINK PUT HERE -------
+To See a fully functional site, please visit: 
+https://peaceful-journey-26317-8a4d8d34aa7b.herokuapp.com/
 
 # Prerequisites 
 
@@ -46,6 +47,27 @@ CREATE TABLE "user" (
     "username" VARCHAR (80) UNIQUE NOT NULL,
     "password" VARCHAR (1000) NOT NULL
 );
+
+CREATE TABLE "manga_book" (
+	"id" SERIAL PRIMARY KEY,
+	"manga_id" INTEGER Unique,
+	"title" varchar(255),
+	"img" varchar(255),
+	"avg_rate" decimal,
+	"description" varchar(10000) null,
+	"start_date" timestamp,
+	"updated_at" timestamp,
+	"status" varchar(50),
+	"last_read" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+	);
+
+CREATE TABLE "manga_library" (
+	"id" SERIAL PRIMARY KEY,
+	"user_id" integer REFERENCES "user",
+	"manga_book_id" integer REFERENCES "manga_book",
+	"done_reading" boolean null default(false)
+);
+
 ```
 
 If you would like to name your database something else, you will need to change `prime_app` to the name of your new database name in `server/modules/pool.js`
