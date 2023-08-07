@@ -31,7 +31,7 @@ function MangaDetails() {
             type: 'ADD_TO_MANGA_BOOK',
             payload: {
                 manga_id: mangaDetails.id,
-                title: mangaDetails.attributes.canonicalTitle,
+                title: mangaDetails.attributes.titles.en,
                 img: mangaDetails.attributes.posterImage.original,
                 avg_rate: mangaDetails.attributes.averageRating,
                 description: mangaDetails.attributes.synopsis,
@@ -45,6 +45,7 @@ function MangaDetails() {
         dispatch({ type: 'ADD_TO_MANGA_LIBRARY', payload: { manga_id: mangaDetails.id } })
         setSelected(!selected)
     }
+    
 
 
     return (
@@ -53,7 +54,11 @@ function MangaDetails() {
 
 
                 <div id='title'>
-                    <p>{mangaDetails.attributes.canonicalTitle}</p>
+                    {mangaDetails.attributes.titles.en ? (
+                        <p>{mangaDetails.attributes.titles.en}</p>
+                    ) : (
+                        <p>{mangaDetails.attributes.canonicalTitle}</p>
+                    )}
                 </div>
 
                 <div className='detailbox'>
