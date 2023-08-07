@@ -17,7 +17,7 @@ import AboutPage from '../AboutPage/AboutPage';
 import LibraryPage from '../LibraryPage/LibraryPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import HomePage from '../HomeMangaUserLoggedIn/HomeMangaUserLoggedIn';
+import HomePage from '../HomeManga/HomeManga';
 import SearchManga from '../SearchManga/SearchManga'
 import MangaDetails from '../MangaDetails/MangaDetails';
 import LMangaDetail from '../LMangaDetail/LMangaDetail';
@@ -27,7 +27,6 @@ import InChapter from '../InChapter/InChaper';
 
 
 import './App.css';
-
 
 function App() {
   const dispatch = useDispatch();
@@ -44,15 +43,20 @@ function App() {
         <Nav />
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/login */}
-          <Redirect exact from="/" to="/home" />
+          <Redirect exact from="/" to="/login" />
 
-          {/* Visiting localhost:3000/about will show the about page. */}
           <Route
-            // shows AboutPage at all times (logged in or not)
             exact
             path="/login"
           >
-            <HomePage />
+            {user.id ?
+              // If the user is already logged in, 
+              // redirect to the /home page
+              <Redirect to="/home" />
+              :
+              // Otherwise, show the login page
+              <LoginPage />
+            }
           </Route>
 
           {/* For protected routes, the view could show one of several things on the same route.
@@ -60,11 +64,17 @@ function App() {
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
           <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
             exact
             path="/home"
           >
-            <HomePage />
+            {!user.id ?
+              // If the user is already logged in, 
+              // redirect to the /home page
+              <Redirect to="/home" />
+              :
+              // Otherwise, show the login page
+              <HomePage />
+            }
           </ProtectedRoute>
 
           <ProtectedRoute
@@ -72,7 +82,14 @@ function App() {
             exact
             path="/library"
           >
-            <LibraryPage />
+            {!user.id ?
+              // If the user is already logged in, 
+              // redirect to the /login page
+              <Redirect to="/login" />
+              :
+              // Otherwise, show the login page
+              <LibraryPage />
+            }
           </ProtectedRoute>
 
           <Route
@@ -111,7 +128,7 @@ function App() {
             {!user.id ?
               // If the user is already logged in, 
               // redirect them to the /user page
-              <Redirect to="/home" />
+              <Redirect to="/login" />
               :
               // Otherwise, show the registration page
               <SearchManga />
@@ -128,7 +145,7 @@ function App() {
             {!user.id ?
               // If the user is already logged in, 
               // redirect them to the /user page
-              <Redirect to="/home" />
+              <Redirect to="/login" />
               :
               // Otherwise, show the registration page
               <MangaDetails />
@@ -143,7 +160,7 @@ function App() {
             {!user.id ?
               // If the user is already logged in, 
               // redirect them to the /user page
-              <Redirect to="/home" />
+              <Redirect to="/login" />
               :
               // Otherwise, show the registration page
               <LMangaDetail />
@@ -153,7 +170,6 @@ function App() {
           <Route
             exact
             path='/workingprogress/chapter'>
-
             <InChapter />
           </Route>
 

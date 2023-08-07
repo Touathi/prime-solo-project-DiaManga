@@ -13,7 +13,7 @@ function Nav() {
 
   return (
     <div className="nav">
-      <Link to="/home">
+      <Link to="/login">
         <h2 className="nav-title ms-4">DiaM💎nga</h2>
       </Link>
       <div>
@@ -22,10 +22,6 @@ function Nav() {
           {!user.id && (
             // If there's no user, show login/registration links
             <>
-              {/* <Link className="navLink" to="/registration">
-                Create a Library
-              </Link> */}
-
               <Link className="navLink" to="/login">
                 Login / Register
               </Link>
