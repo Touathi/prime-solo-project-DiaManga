@@ -62,10 +62,6 @@ function InfoPage() {
                         <div className='checkmark'>
                           ✅
                         </div>
-
-                        <div className='Libtitle'>
-                          {manga.title}
-                        </div>
                         <div >
                           {/* DELETE FROM DATABASE */}
                           <button
@@ -74,6 +70,10 @@ function InfoPage() {
                             ❌
                           </button>
                         </div>
+                        <div className='Libtitle'>
+                          {manga.title}
+                        </div>
+                        
                       </div>
                     </div>
                   </div>
@@ -92,28 +92,24 @@ function InfoPage() {
                             Finished reading
                           </button>
                         </div>
-
                       </div>
-
                       <div onClick={() => handleClick(manga)}>
 
                         <Link to={`/library/mangadetails/${manga.manga_id}/${manga.title}`}>
                           <img src={manga.img} alt="manga_pic" className='Libposter' />
                         </Link>
-
-                        <div className='Libtitle'>
-                          {manga.title}
-                        </div>
                         <div>
                           {/* DELETE FROM DATABASE */}
-                          <button
-                            onClick={() => handleDelete(manga)}
-                            className='remove'
-                          >
-                            ❌
-                          </button>
+                        <button
+                          onClick={() => handleDelete(manga)}
+                          className='trash'
+                        >
+                          ❌
+                        </button>
                         </div>
-
+                        <div className='LibtitleBefore'>
+                          {manga.title}
+                        </div>
                       </div>
                     </div>
                   </div>

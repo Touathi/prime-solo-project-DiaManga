@@ -19,7 +19,18 @@
     width: 140px;
     white-space: wrap;
     overflow: hidden;
-    text-overflow: ellipsis
+    text-overflow: ellipsis;
+    position: relative;
+    top: -61px;
+}
+
+.LibtitleBefore {
+    width: 140px;
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    top: -25px;
 }
 
 .Libposter {
@@ -35,8 +46,9 @@
 
 
 .checkmark {
-    position: absolute;
-    top: 190px;
+    position: relative;
+    top: -168px;
+    left: 97px;
     font-size: x-large;
 }
 
@@ -54,4 +66,20 @@
     cursor: pointer;
     margin: 0;
     padding: 0;
+    position: relative;
+    top: -61px;
+    left: 91px;
+}
+
+.trash {
+    font-size: small;
+    width: 30px;
+    border: 2px solid red;
+    background-color:rgb(82, 5, 5);
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: -26px;
+    left: 91px;
 }
